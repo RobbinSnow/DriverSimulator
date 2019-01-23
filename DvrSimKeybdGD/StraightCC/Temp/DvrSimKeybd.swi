@@ -1,0 +1,31 @@
+# create sensor mounts and cameras
+LaneMarkerSensor_1_mount = visnodes.VisTransform.createTransformNode(r"LaneMarkerSensor_1_mount")
+scene.Roewe_550_S_Sedan_1.addChild(LaneMarkerSensor_1_mount)
+scene.getTransformChild("LaneMarkerSensor_1_mount")
+LaneMarkerSensor_1_mount.setTranslation(1.79999995231628, 0, 1.33000004291534)
+LaneMarkerSensor_1_mount.setRotation(0, 1, 0, 0)
+
+LaneMarkerSensor_2_mount = visnodes.VisTransform.createTransformNode(r"LaneMarkerSensor_2_mount")
+scene.Roewe_550_S_Sedan_1.addChild(LaneMarkerSensor_2_mount)
+scene.getTransformChild("LaneMarkerSensor_2_mount")
+LaneMarkerSensor_2_mount.setTranslation(1.79999995231628, 0, 1.33000004291534)
+LaneMarkerSensor_2_mount.setRotation(0, 1, 0, 0)
+
+LaneMarkerSensor_3_mount = visnodes.VisTransform.createTransformNode(r"LaneMarkerSensor_3_mount")
+scene.Roewe_550_S_Sedan_1.addChild(LaneMarkerSensor_3_mount)
+scene.getTransformChild("LaneMarkerSensor_3_mount")
+LaneMarkerSensor_3_mount.setTranslation(1.79999995231628, 0, 1.33000004291534)
+LaneMarkerSensor_3_mount.setRotation(0, 1, 0, 0)
+
+LaneMarkerSensor_4_mount = visnodes.VisTransform.createTransformNode(r"LaneMarkerSensor_4_mount")
+scene.Roewe_550_S_Sedan_1.addChild(LaneMarkerSensor_4_mount)
+scene.getTransformChild("LaneMarkerSensor_4_mount")
+LaneMarkerSensor_4_mount.setTranslation(1.79999995231628, 0, 1.33000004291534)
+LaneMarkerSensor_4_mount.setRotation(0, 1, 0, 0)
+
+LaneMarkerSensor_5_mount = visnodes.VisTransform.createTransformNode(r"LaneMarkerSensor_5_mount")
+scene.Roewe_550_S_Sedan_1.addChild(LaneMarkerSensor_5_mount)
+scene.getTransformChild("LaneMarkerSensor_5_mount")
+LaneMarkerSensor_5_mount.setTranslation(1.79999995231628, 0, 1.33000004291534)
+LaneMarkerSensor_5_mount.setRotation(0, 1, 0, 0)
+

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ExperimentConfig>
+  <Views>
+    <View id="0" cameraId="AbbrView" screenId="1" fullScreen="False" borderless="True" x="480" y="80" width="400" height="240" />
+    <View id="1" cameraId="Driver" screenId="1" fullScreen="True" borderless="False" x="80" y="80" width="800" height="640" />
+  </Views>
+  <MachineAssignments>
+    <MachineAssignment hostName="localhost" viewID="0" />
+    <MachineAssignment hostName="localhost" viewID="1" />
+  </MachineAssignments>
+</ExperimentConfig>

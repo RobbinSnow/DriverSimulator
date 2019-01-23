@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<ViewerSettings>
+	<Viewers>
+		<Viewer1 camera="Default View"/>
+		<Viewer2 camera="InclinedSide"/>
+		<Viewer3 camera="Top View"/>
+		<Viewer4 camera="Top View"/>
+	</Viewers>
+	<Layout>
+		<splitter horizontal="True" left="1901" right="0"/>
+		<splitter2 horizontal="True" left="1901" right="0"/>
+		<splitter3 horizontal="False" left="916" right="0"/>
+	</Layout>
+</ViewerSettings>

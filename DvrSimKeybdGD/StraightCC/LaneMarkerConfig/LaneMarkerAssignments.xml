@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ExperimentConfig>
+  <Federates>
+    <Federate federateId="0" hostId="localhost" />
+  </Federates>
+  <SensorAssignments>
+    <SensorAssignment sensorId="LaneMarkerSensor_1" federateId="0" />
+    <SensorAssignment sensorId="LaneMarkerSensor_2" federateId="0" />
+    <SensorAssignment sensorId="LaneMarkerSensor_3" federateId="0" />
+    <SensorAssignment sensorId="LaneMarkerSensor_4" federateId="0" />
+    <SensorAssignment sensorId="LaneMarkerSensor_5" federateId="0" />
+  </SensorAssignments>
+</ExperimentConfig>
