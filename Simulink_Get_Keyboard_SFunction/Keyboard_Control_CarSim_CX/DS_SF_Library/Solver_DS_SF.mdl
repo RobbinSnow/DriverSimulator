@@ -1,0 +1,6864 @@
+Library {
+  Name			  "Solver_DS_SF"
+  Version		  7.1
+  MdlSubVersion		  0
+  SavedCharacterEncoding  "windows-1252"
+  LibraryType		  "BlockLibrary"
+  SaveDefaultBlockParams  on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  Created		  "Thu Jul 24 10:16:29 2008"
+  Creator		  "Jin"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "Jin"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Fri Oct 02 10:03:54 2015"
+  RTWModifiedTimeStamp	  365681005
+  ModelVersionFormat	  "1.%<AutoIncrement:27>"
+  ConfigurationManager	  "None"
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowSignalResolutionIcons on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  RecordCoverage	  off
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  CovModelRefEnable	  "Off"
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  BlockDefaults {
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Arial"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+    Orientation		    "right"
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Arial"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Arial"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit from 'Constant value'"
+      LockScale		      off
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+  OutDataTypeMode   "Inherit from 'Constant value'"
+  OutDataType   "fixdt(1,16,0)"
+  ConRadixGroup   "Use specified scaling"
+  OutScaling   "[]"
+    }
+    Block {
+      BlockType		      DataTypeConversion
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via back propagation"
+      LockScale		      off
+      ConvertRealWorld	      "Real World Value (RWV)"
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+  OutDataTypeMode   "Inherit via back propagation"
+  OutDataType   "fixdt(1,16,0)"
+  OutScaling   "[]"
+    }
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      Display
+      Format		      "short"
+      Decimation	      "10"
+      Floating		      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParamDataTypeStr	      "Inherit: Same as input"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+  ParameterDataTypeMode   "Same as input"
+  ParameterDataType   "fixdt(1,16,0)"
+  ParameterScalingMode   "Best Precision: Matrix-wise"
+  ParameterScaling   "[]"
+  OutDataTypeMode   "Same as input"
+  OutDataType   "fixdt(1,16,0)"
+  OutScaling   "[]"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchByCopyingInsideSignal off
+      Interpolate	      on
+  DataType   "auto"
+  OutDataType   "fixdt(1,16,0)"
+  OutScaling   "[]"
+  UseBusObject   off
+  BusObject   "BusObject"
+    }
+    Block {
+      BlockType		      Logic
+      Operator		      "AND"
+      Inputs		      "2"
+      IconShape		      "rectangular"
+      AllPortsSameDT	      on
+      OutDataTypeStr	      "Inherit: Logical (see Configuration Parameters: Optimization)"
+      SampleTime	      "-1"
+  OutDataTypeMode   "Logical (see Configuration Parameters: Optimization)"
+  LogicDataType   "uint(8)"
+    }
+    Block {
+      BlockType		      Mux
+      Inputs		      "4"
+      DisplayOption	      "none"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      NonVirtualBus	      off
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: auto"
+      LockScale		      off
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+  DataType   "auto"
+  OutDataType   "fixdt(1,16,0)"
+  OutScaling   "[]"
+  UseBusObject   off
+  BusObject   "BusObject"
+    }
+    Block {
+      BlockType		      S-Function
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+      SFunctionDeploymentMode off
+    }
+    Block {
+      BlockType		      Saturate
+      UpperLimit	      "0.5"
+      LowerLimit	      "-0.5"
+      LinearizeAsGain	      on
+      ZeroCross		      on
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as input"
+      LockScale		      off
+      RndMeth		      "Floor"
+  OutDataTypeMode   "Same as input"
+  OutDataType   "fixdt(1,16,0)"
+  OutScaling   "[]"
+    }
+    Block {
+      BlockType		      Selector
+      NumberOfDimensions      "1"
+      IndexMode		      "One-based"
+      InputPortWidth	      "-1"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      CheckFcnCallInpInsideContextMsg off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      AccumDataTypeStr	      "Inherit: Inherit via internal rule"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Same as first input"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+  OutDataTypeMode   "Same as first input"
+  OutDataType   "fixdt(1,16,0)"
+  OutScaling   "[]"
+    }
+    Block {
+      BlockType		      Switch
+      Criteria		      "u2 >= Threshold"
+      Threshold		      "0"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeStr	      "Inherit: Inherit via internal rule"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      ZeroCross		      on
+      SampleTime	      "-1"
+  OutDataTypeMode   "Inherit via internal rule"
+  OutDataType   "fixdt(1,16,0)"
+  OutScaling   "[]"
+    }
+    Block {
+      BlockType		      Terminator
+    }
+    Block {
+      BlockType		      TriggerPort
+      TriggerType	      "rising"
+      StatesWhenEnabling      "inherit"
+      ShowOutputPort	      off
+      OutputDataType	      "auto"
+      SampleTimeType	      "triggered"
+      SampleTime	      "1"
+      ZeroCross		      on
+    }
+  }
+  System {
+    Name		    "Solver_DS_SF"
+    Location		    [841, 195, 1576, 819]
+    Open		    off
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "white"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      SubSystem
+      Name		      "Logitech G25/G27"
+      Ports		      [2, 6]
+      Position		      [180, 19, 290, 126]
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      MaskHideContents	      off
+      MaskType		      "CarSim DS"
+      MaskDescription	      "Logitech G25 Steering Wheel for CarSim/TruckSim Driving Simulator\n\nInput 1: Force feedb"
+      "ack\nInput 2: AT mode (1), MT mode (-1)\n\nOutput 1: Steering Angle (-450deg - 450deg)\nOutput 2: Throttle posit"
+      "ion (0-1)\nOutput 3: Brake position (0-1)\nOutput 4: Clutch position (0-1)\nOutput 5: Gear shift\n              "
+      "  MT Mode:\n                                -1:  R\n                              1-6: Gear 1-6\n               "
+      " AT Mode:\n                              button 1: Down shift\n                              button 2: Upshift\n"
+      "Output 6: Other 14 buttons.\n"
+      MaskDisplay	      "image(imread('G25.jpg'))"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      Port {
+	PortNumber		1
+	Name			"Steering Angle"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		2
+	Name			"Throttle"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      Port {
+	PortNumber		3
+	Name			"Brake"
+	RTWStorageClass		"Auto"
+	DataLoggingNameMode	"SignalName"
+      }
+      System {
+	Name			"Logitech G25/G27"
+	Location		[2166, 457, 2954, 1043]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Force"
+	  Position		  [40, 128, 70, 142]
+	  ShowName		  off
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "AT or MT"
+	  Position		  [40, 283, 70, 297]
+	  ShowName		  off
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux"
+	  Ports			  [1, 4]
+	  Position		  [280, 222, 285, 283]
+	  BackgroundColor	  "black"
+	  ShowName		  off
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain"
+	  Position		  [260, 18, 300, 52]
+	  ShowName		  off
+	  Gain			  "450"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+  ParameterDataTypeMode   "Inherit via internal rule"
+  OutDataTypeMode   "Inherit via internal rule"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain2"
+	  Position		  [245, 293, 275, 317]
+	  ShowName		  off
+	  Gain			  "[1 2 3 4 5 6 -1]"
+	  ParamDataTypeStr	  "Inherit: Inherit via internal rule"
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+  ParameterDataTypeMode   "Inherit via internal rule"
+  OutDataTypeMode   "Inherit via internal rule"
+	}
+	Block {
+	  BlockType		  Logic
+	  Name			  "Logical\nOperator"
+	  Ports			  [2, 1]
+	  Position		  [310, 222, 330, 253]
+	  ShowName		  off
+	  Operator		  "OR"
+	  AllPortsSameDT	  off
+	  OutDataTypeStr	  "boolean"
+  OutDataTypeMode   "boolean"
+	}
+	Block {
+	  BlockType		  Logic
+	  Name			  "Logical\nOperator1"
+	  Ports			  [2, 1]
+	  Position		  [310, 250, 330, 285]
+	  ShowName		  off
+	  Operator		  "OR"
+	  AllPortsSameDT	  off
+	  OutDataTypeStr	  "boolean"
+  OutDataTypeMode   "boolean"
+	}
+	Block {
+	  BlockType		  Mux
+	  Name			  "Mux"
+	  Ports			  [2, 1]
+	  Position		  [350, 224, 355, 286]
+	  ShowName		  off
+	  Inputs		  "2"
+	  DisplayOption		  "bar"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "S-Function"
+	  Ports			  [1, 5]
+	  Position		  [105, 60, 195, 210]
+	  FunctionName		  "Logitech_SF"
+	  Parameters		  "19"
+	  EnableBusSupport	  off
+	}
+	Block {
+	  BlockType		  Selector
+	  Name			  "Selector"
+	  Ports			  [1, 1]
+	  Position		  [216, 220, 234, 225]
+	  Orientation		  "down"
+	  BackgroundColor	  "black"
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  IndexOptions		  "Index vector (dialog)"
+	  Indices		  "[9 10 11 12 13 14 15]"
+	  OutputSizes		  "1"
+	}
+	Block {
+	  BlockType		  Selector
+	  Name			  "Selector1"
+	  Ports			  [1, 1]
+	  Position		  [350, 186, 355, 204]
+	  BackgroundColor	  "black"
+	  ShowName		  off
+	  IndexOptions		  "Index vector (dialog)"
+	  Indices		  "[1 2 3 4 5 6 7 8 16 17 18 19]"
+	  OutputSizes		  "1"
+	}
+	Block {
+	  BlockType		  Selector
+	  Name			  "Selector2"
+	  Ports			  [1, 1]
+	  Position		  [251, 215, 269, 220]
+	  Orientation		  "down"
+	  BackgroundColor	  "black"
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  IndexOptions		  "Index vector (dialog)"
+	  Indices		  "[9 6 10 5]"
+	  OutputSizes		  "1"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum of\nElements"
+	  Ports			  [1, 1]
+	  Position		  [295, 296, 310, 314]
+	  ShowName		  off
+	  Inputs		  "+"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+	  SaturateOnIntegerOverflow off
+  OutDataTypeMode   "Inherit via internal rule"
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  Position		  [400, 268, 420, 312]
+	  ShowName		  off
+	  Threshold		  "0.5"
+	  InputSameDT		  off
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Steer Angle"
+	  Position		  [395, 28, 425, 42]
+	  ShowName		  off
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Throttle"
+	  Position		  [395, 63, 425, 77]
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Brake"
+	  Position		  [395, 98, 425, 112]
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Clutch"
+	  Position		  [395, 133, 425, 147]
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Gear"
+	  Position		  [445, 283, 475, 297]
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Buttons"
+	  Position		  [395, 188, 425, 202]
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Mux"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, 20]
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Logical\nOperator1"
+	  SrcPort		  1
+	  DstBlock		  "Mux"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Logical\nOperator"
+	  SrcPort		  1
+	  DstBlock		  "Mux"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  4
+	  DstBlock		  "Logical\nOperator1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  3
+	  DstBlock		  "Logical\nOperator1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  2
+	  DstBlock		  "Logical\nOperator"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  1
+	  DstBlock		  "Logical\nOperator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Selector2"
+	  SrcPort		  1
+	  Points		  [0, 30]
+	  DstBlock		  "Demux"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "S-Function"
+	  SrcPort		  1
+	  Points		  [45, 0]
+	  DstBlock		  "Gain"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "S-Function"
+	  SrcPort		  2
+	  Points		  [60, 0; 0, -35]
+	  DstBlock		  "Throttle"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Force"
+	  SrcPort		  1
+	  DstBlock		  "S-Function"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "S-Function"
+	  SrcPort		  3
+	  Points		  [80, 0; 0, -30]
+	  DstBlock		  "Brake"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "S-Function"
+	  SrcPort		  4
+	  Points		  [100, 0; 0, -25]
+	  DstBlock		  "Clutch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "S-Function"
+	  SrcPort		  5
+	  Points		  [0, 0; 25, 0]
+	  Branch {
+	    Points		    [35, 0]
+	    Branch {
+	      DstBlock		      "Selector2"
+	      DstPort		      1
+	    }
+	    Branch {
+	      DstBlock		      "Selector1"
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    DstBlock		    "Selector"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Gain"
+	  SrcPort		  1
+	  DstBlock		  "Steer Angle"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain2"
+	  SrcPort		  1
+	  DstBlock		  "Sum of\nElements"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Selector1"
+	  SrcPort		  1
+	  DstBlock		  "Buttons"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Selector"
+	  SrcPort		  1
+	  Points		  [0, 75]
+	  DstBlock		  "Gain2"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum of\nElements"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "AT or MT"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "Gear"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      S-Function
+      Name		      "Peak CAN\nReceive"
+      Ports		      [0, 3]
+      Position		      [310, 150, 355, 230]
+      FunctionName	      "PCAN_Read"
+      Parameters	      "id,TimeStep,nOut,bits_define"
+      EnableBusSupport	      off
+      MaskDescription	      "Peak-System USB CAN Receive."
+      MaskPromptString	      "CAN ID|Sample time|Bit defination (cell array):|Port name (cell array):"
+      MaskStyleString	      "edit,edit,edit,edit"
+      MaskVariables	      "id=&1;TimeStep=&2;bits_define=@3;portnames=@4;"
+      MaskTunableValueString  "on,on,off,off"
+      MaskCallbackString      "|||"
+      MaskEnableString	      "on,on,on,on"
+      MaskVisibilityString    "on,on,on,on"
+      MaskToolTipString	      "on,on,on,on"
+      MaskInitialization      "%set_param(gcb, 'InitFcn', ['CAN_h=' adapter '_handle;']);\nnOut=length(bits_define);\n"
+      "[bits_define]=formatbit(bits_define,portnames,1);\nset_param(gcb, 'Parameters', ['id,TimeStep,nOut,bits_define']"
+      ");\n"
+      MaskDisplay	      "port_label('output',1,'Position ');port_label('output',2,'Speed ');port_label('output',3,'Mot"
+      "or Torque ');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "529|0.01|{[0:31],[32:47],[48:63]}|{'Position','Speed','Motor Torque'}"
+    }
+    Block {
+      BlockType		      S-Function
+      Name		      "Peak CAN\nSend"
+      Ports		      [4]
+      Position		      [415, 157, 460, 233]
+      FunctionName	      "PCAN_Send"
+      Parameters	      "id,len,TimeStep,nOut,bits_define"
+      EnableBusSupport	      off
+      MaskDescription	      "Peak-System USB CAN send"
+      MaskPromptString	      "CAN ID|Data Length|Sample time|Bit defination (cell array):|Port name (cell array):"
+      MaskStyleString	      "edit,popup(1|2|3|4|5|6|7|8),edit,edit,edit"
+      MaskVariables	      "id=&1;len=&2;TimeStep=&3;bits_define=@4;portnames=@5;"
+      MaskTunableValueString  "on,on,on,off,off"
+      MaskCallbackString      "||||"
+      MaskEnableString	      "on,on,on,on,on"
+      MaskVisibilityString    "on,on,on,on,on"
+      MaskToolTipString	      "on,on,on,on,on"
+      MaskInitialization      "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,0);\nset_param"
+      "(gcb, 'Parameters', ['id,len,TimeStep,nOut,bits_define']);\n"
+      MaskDisplay	      "port_label('input',1,' Torque Set Value');port_label('input',2,' Friction');port_label('input"
+      "',3,' Damping');port_label('input',4,' Spring Stiffness');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "513|8|0.02|{[0:15],[16:31],[32:47],[48:63]}|{'Torque Set Value','Friction','Damping','Spr"
+      "ing Stiffness'}"
+    }
+    Block {
+      BlockType		      S-Function
+      Name		      "Peak CAN Setup"
+      Ports		      []
+      Position		      [203, 195, 239, 230]
+      Priority		      "1"
+      FunctionName	      "PCAN_init"
+      Parameters	      "CAN_MODE,szBitrate"
+      EnableBusSupport	      off
+      MaskDescription	      "Peak-System USB CAN setup"
+      MaskPromptString	      "CAN identifier range:|Baud rate (kbps):"
+      MaskStyleString	      "popup(Standard (11-bit)|Extended (29-bit)),popup(1000|500|250|100|50|20|10|5)"
+      MaskVariables	      "CAN_MODE=&1;szBitrate=&2;"
+      MaskTunableValueString  "on,on"
+      MaskCallbackString      "|"
+      MaskEnableString	      "on,on"
+      MaskVisibilityString    "on,on"
+      MaskToolTipString	      "on,on"
+      MaskDisplay	      "image(imread('Peak_CAN.jpg'));"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "Standard (11-bit)|1000"
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Senso Wheel 1.0\nwith Lawicel CAN"
+      Ports		      [1, 1]
+      Position		      [335, 23, 415, 77]
+      Orientation	      "left"
+      Priority		      "3"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      MaskHideContents	      off
+      MaskDisplay	      "image(imread('SensoDrive.jpg'))"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Senso Wheel 1.0\nwith Lawicel CAN"
+	Location		[461, 120, 1091, 821]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Inputs"
+	  Position		  [201, 25, 239, 40]
+	  Orientation		  "down"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "-360/8000"
+	  Position		  [245, 363, 305, 397]
+	  Gain			  "-0.045"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  Position		  [330, 104, 355, 126]
+	  ShowName		  off
+	  Value			  "20"
+	  OutDataTypeStr	  "uint16"
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant10"
+	  Position		  [20, 239, 45, 261]
+	  ShowName		  off
+	  Value			  "100"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant11"
+	  Position		  [85, 323, 120, 347]
+	  ShowName		  off
+	  Value			  "hex2dec('100000000')"
+	  VectorParams1D	  off
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  Position		  [330, 165, 355, 185]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint16"
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant3"
+	  Position		  [20, 29, 45, 51]
+	  ShowName		  off
+	  Value			  "4"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant4"
+	  Position		  [20, 59, 45, 81]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant5"
+	  Position		  [20, 90, 45, 110]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant6"
+	  Position		  [20, 148, 45, 172]
+	  ShowName		  off
+	  Value			  "580"
+	  OutDataTypeStr	  "uint16"
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant7"
+	  Position		  [20, 179, 45, 201]
+	  ShowName		  off
+	  Value			  "0"
+	  OutDataTypeStr	  "int16"
+  OutDataTypeMode   "int16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant8"
+	  Position		  [20, 119, 45, 141]
+	  ShowName		  off
+	  Value			  "0"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant9"
+	  Position		  [20, 209, 45, 231]
+	  ShowName		  off
+	  Value			  "200"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "Data Type Conversion"
+	  Position		  [355, 135, 395, 155]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint16"
+	  SaturateOnIntegerOverflow off
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux"
+	  Ports			  [1, 2]
+	  Position		  [250, 73, 255, 122]
+	  BackgroundColor	  "black"
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Outputs		  "2"
+	}
+	Block {
+	  BlockType		  Display
+	  Name			  "Display"
+	  Ports			  [1]
+	  Position		  [195, 468, 280, 492]
+	  Decimation		  "1"
+	  Lockdown		  off
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain4"
+	  Position		  [350, 75, 375, 95]
+	  ShowName		  off
+	  Gain			  "-1000"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Lawicel CAN\nReceive 0x211"
+	  Ports			  [0, 3]
+	  Position		  [30, 361, 105, 459]
+	  FunctionName		  "LCAN_Read"
+	  Parameters		  "1,CAN_MODE,id,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskPromptString	  "CAN adapter|CAN identifier range:|CAN ID|Sample time|Bit defination (cell array):|Port name (ce"
+	  "ll array):"
+	  MaskStyleString	  "popup(CAN1|CAN2|CAN3|CAN4),popup(Standard (11-bit)|Extended (29-bit)),edit,edit,edit,edit"
+	  MaskVariables		  "adapter=&1;CAN_MODE=&2;id=&3;TimeStep=&4;bits_define=@5;portnames=@6;"
+	  MaskTunableValueString  "on,on,on,on,off,off"
+	  MaskCallbackString	  "|||||"
+	  MaskEnableString	  "on,on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,1);\nset_param(gcb, "
+	  "'Parameters', [adapter(4) ',CAN_MODE,id,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('output',1,'Position ');port_label('output',2,'Speed ');port_label('output',3,'Motor Tor"
+	  "que ');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "CAN1|Standard (11-bit)|529|0.010|{[0:31],[32:47],[48:63]}|{'Position','Speed','Motor Torque'}"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Lawicel CAN\nSend 0x200"
+	  Ports			  [8]
+	  Position		  [75, 24, 190, 266]
+	  FunctionName		  "LCAN_Send"
+	  Parameters		  "1,CAN_MODE,id,len,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskPromptString	  "CAN adapter|CAN identifier range:|CAN ID|Data Length|Sample time|Bit defination (cell array):|P"
+	  "ort name (cell array):"
+	  MaskStyleString	  "popup(CAN1|CAN2|CAN3|CAN4),popup(Standard (11-bit)|Extended (29-bit)),edit,popup(1|2|3|4|5|6|7|8"
+	  "),edit,edit,edit"
+	  MaskVariables		  "adapter=&1;CAN_MODE=&2;id=&3;len=&4;TimeStep=&5;bits_define=@6;portnames=@7;"
+	  MaskTunableValueString  "on,on,on,on,on,off,off"
+	  MaskCallbackString	  "||||||"
+	  MaskEnableString	  "on,on,on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,0);\nset_param(gcb, "
+	  "'Parameters', [adapter(4) ',CAN_MODE,id,len,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('input',1,' Control Word');port_label('input',2,' Operating Mode');port_label('input',3,"
+	  "' Watch Dog');port_label('input',4,' Position Limit');port_label('input',5,' End Stop Position');port_label('input'"
+	  ",6,' Position Offset');port_label('input',7,' Set Torque Limit');port_label('input',8,' Peak Torque Limit');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "CAN1|Standard (11-bit)|512|8|0.025|{[0:3],[4:7],[8:11],[12:15],[16:31],[32:47],[48:55],[56:63]}|"
+	  "{'Control Word','Operating Mode','Watch Dog','Position Limit','End Stop Position','Position Offset','Set Torque Lim"
+	  "it','Peak Torque Limit'}"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Lawicel CAN\nSend 0x201"
+	  Ports			  [4]
+	  Position		  [435, 67, 545, 193]
+	  FunctionName		  "LCAN_Send"
+	  Parameters		  "1,CAN_MODE,id,len,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskPromptString	  "CAN adapter|CAN identifier range:|CAN ID|Data Length|Sample time|Bit defination (cell array):|P"
+	  "ort name (cell array):"
+	  MaskStyleString	  "popup(CAN1|CAN2|CAN3|CAN4),popup(Standard (11-bit)|Extended (29-bit)),edit,popup(1|2|3|4|5|6|7|8"
+	  "),edit,edit,edit"
+	  MaskVariables		  "adapter=&1;CAN_MODE=&2;id=&3;len=&4;TimeStep=&5;bits_define=@6;portnames=@7;"
+	  MaskTunableValueString  "on,on,on,on,on,off,off"
+	  MaskCallbackString	  "||||||"
+	  MaskEnableString	  "on,on,on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,0);\nset_param(gcb, "
+	  "'Parameters', [adapter(4) ',CAN_MODE,id,len,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('input',1,' Torque Set Value');port_label('input',2,' Friction');port_label('input',3,' "
+	  "Damping');port_label('input',4,' Spring Stiffness');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "CAN1|Standard (11-bit)|513|8|0.02|{[0:15],[16:31],[32:47],[48:63]}|{'Torque Set Value','Friction"
+	  "','Damping','Spring Stiffness'}"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  Position		  [395, 76, 410, 94]
+	  ShowName		  off
+	  UpperLimit		  "14500"
+	  LowerLimit		  "-14500"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  Position		  [310, 136, 325, 154]
+	  ShowName		  off
+	  UpperLimit		  "200"
+	  LowerLimit		  "40"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  Ports			  [2, 1]
+	  Position		  [145, 325, 165, 345]
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|-+"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+  OutDataTypeMode   "Inherit via internal rule"
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  Position		  [190, 361, 210, 399]
+	  Threshold		  "100000"
+	  InputSameDT		  off
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "System Monitor"
+	  Ports			  []
+	  Position		  [340, 265, 400, 315]
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "System Monitor"
+	    Location		    [56, 189, 807, 1015]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator"
+	      Ports		      [1, 1]
+	      Position		      [480, 16, 520, 54]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('1')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator1"
+	      Ports		      [1, 1]
+	      Position		      [480, 66, 520, 104]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('4')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator10"
+	      Ports		      [1, 1]
+	      Position		      [480, 469, 520, 511]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('800')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator11"
+	      Ports		      [1, 1]
+	      Position		      [480, 514, 520, 556]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('1000')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator12"
+	      Ports		      [1, 1]
+	      Position		      [480, 558, 520, 602]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('2000')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator2"
+	      Ports		      [1, 1]
+	      Position		      [480, 110, 520, 150]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('8')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator3"
+	      Ports		      [1, 1]
+	      Position		      [480, 156, 520, 194]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('10')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator4"
+	      Ports		      [1, 1]
+	      Position		      [480, 200, 520, 240]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('20')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator5"
+	      Ports		      [1, 1]
+	      Position		      [480, 244, 520, 286]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('40')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator6"
+	      Ports		      [1, 1]
+	      Position		      [480, 289, 520, 331]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('80')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator7"
+	      Ports		      [1, 1]
+	      Position		      [480, 333, 520, 377]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('100')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator8"
+	      Ports		      [1, 1]
+	      Position		      [480, 379, 520, 421]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('200')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator9"
+	      Ports		      [1, 1]
+	      Position		      [480, 425, 520, 465]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('400')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Data Type Conversion"
+	      Position		      [160, 63, 210, 87]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint16"
+	      SaturateOnIntegerOverflow	off
+  OutDataTypeMode   "uint16"
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Data Type Conversion1"
+	      Position		      [160, 153, 210, 177]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint16"
+	      SaturateOnIntegerOverflow	off
+  OutDataTypeMode   "uint16"
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display"
+	      Ports		      [1]
+	      Position		      [235, 64, 325, 86]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display1"
+	      Ports		      [1]
+	      Position		      [235, 154, 325, 176]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display2"
+	      Ports		      [1]
+	      Position		      [200, 243, 285, 267]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display3"
+	      Ports		      [1]
+	      Position		      [200, 334, 290, 356]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Encoder index"
+	      Ports		      [1]
+	      Position		      [555, 479, 645, 501]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "End Stops switched on"
+	      Ports		      [1]
+	      Position		      [555, 434, 645, 456]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Error occurred"
+	      Ports		      [1]
+	      Position		      [555, 119, 645, 141]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "High level mode"
+	      Ports		      [1]
+	      Position		      [555, 164, 645, 186]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "Lawicel CAN\nReceive 0x210"
+	      Ports		      [0, 4]
+	      Position		      [15, 28, 140, 392]
+	      FunctionName	      "LCAN_Read"
+	      Parameters	      "1,CAN_MODE,id,TimeStep,nOut,bits_define"
+	      EnableBusSupport	      off
+	      MaskPromptString	      "CAN adapter|CAN identifier range:|CAN ID|Sample time|Bit defination (cell array):|Port "
+	      "name (cell array):"
+	      MaskStyleString	      "popup(CAN1|CAN2|CAN3|CAN4),popup(Standard (11-bit)|Extended (29-bit)),edit,edit,edit,edit"
+	      MaskVariables	      "adapter=&1;CAN_MODE=&2;id=&3;TimeStep=&4;bits_define=@5;portnames=@6;"
+	      MaskTunableValueString  "on,on,on,on,off,off"
+	      MaskCallbackString      "|||||"
+	      MaskEnableString	      "on,on,on,on,on,on"
+	      MaskVisibilityString    "on,on,on,on,on,on"
+	      MaskToolTipString	      "on,on,on,on,on,on"
+	      MaskInitialization      "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,1);\nset_para"
+	      "m(gcb, 'Parameters', [adapter(4) ',CAN_MODE,id,TimeStep,nOut,bits_define']);\n"
+	      MaskDisplay	      "port_label('output',1,'Status ');port_label('output',2,'Errors ');port_label('output',3,'End"
+	      " Stop Position ');port_label('output',4,'Encodeer Index Position ');"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      on
+	      MaskIconRotate	      "none"
+	      MaskIconUnits	      "autoscale"
+	      MaskValueString	      "CAN1|Standard (11-bit)|528|0.010|{[0:15],[16:31],[32:47],[48:63]}|{'Status','Errors','En"
+	      "d Stop Position','Encodeer Index Position'}"
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Low level mode"
+	      Ports		      [1]
+	      Position		      [555, 209, 645, 231]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Motor Active"
+	      Ports		      [1]
+	      Position		      [555, 74, 645, 96]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Motor Switch off"
+	      Ports		      [1]
+	      Position		      [555, 24, 645, 46]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Motor protection active"
+	      Ports		      [1]
+	      Position		      [555, 389, 645, 411]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Position limit switched off"
+	      Ports		      [1]
+	      Position		      [555, 524, 645, 546]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Rubber band"
+	      Ports		      [1]
+	      Position		      [555, 299, 645, 321]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Watchdog switched off"
+	      Ports		      [1]
+	      Position		      [555, 344, 645, 366]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Zero Posotion mode"
+	      Ports		      [1]
+	      Position		      [555, 254, 645, 276]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Zero position ready"
+	      Ports		      [1]
+	      Position		      [555, 569, 645, 591]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Line {
+	      SrcBlock		      "Lawicel CAN\nReceive 0x210"
+	      SrcPort		      1
+	      DstBlock		      "Data Type Conversion"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Lawicel CAN\nReceive 0x210"
+	      SrcPort		      2
+	      DstBlock		      "Data Type Conversion1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Lawicel CAN\nReceive 0x210"
+	      SrcPort		      3
+	      DstBlock		      "Display2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Lawicel CAN\nReceive 0x210"
+	      SrcPort		      4
+	      DstBlock		      "Display3"
+	      DstPort		      1
+	    }
+	    Line {
+	      Labels		      [0, 0]
+	      SrcBlock		      "Data Type Conversion"
+	      SrcPort		      1
+	      Points		      [5, 0]
+	      Branch {
+		Points			[0, -40; 230, 0]
+		Branch {
+		  DstBlock		  "Bitwise\nOperator"
+		  DstPort		  1
+		}
+		Branch {
+		  Points		  [0, 50]
+		  Branch {
+		    DstBlock		    "Bitwise\nOperator1"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator2"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator3"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator4"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator5"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator6"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    DstBlock		    "Bitwise\nOperator12"
+		    DstPort		    1
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator11"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator10"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator9"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator8"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator7"
+		    DstPort		    1
+		    }
+		    }
+		    }
+		    }
+		    }
+		    }
+		  }
+		}
+	      }
+	      Branch {
+		DstBlock		"Display"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Data Type Conversion1"
+	      SrcPort		      1
+	      DstBlock		      "Display1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Motor Switch off"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator1"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Motor Active"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator2"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Error occurred"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator3"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "High level mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator4"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Low level mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator5"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Zero Posotion mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator6"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Rubber band"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator7"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Watchdog switched off"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator8"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Motor protection active"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator9"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "End Stops switched on"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator10"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Encoder index"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator11"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Position limit switched off"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator12"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Zero position ready"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  Position		  [150, 430, 170, 450]
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator1"
+	  Position		  [150, 400, 170, 420]
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Steering Position"
+	  Position		  [355, 373, 385, 387]
+	  FontSize		  12
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Lawicel CAN\nSend 0x201"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Lawicel CAN\nSend 0x201"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Constant3"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant4"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Constant5"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Constant8"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Constant6"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "Constant7"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "Constant9"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "Constant10"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  8
+	}
+	Line {
+	  SrcBlock		  "Lawicel CAN\nReceive 0x211"
+	  SrcPort		  2
+	  DstBlock		  "Terminator1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Lawicel CAN\nReceive 0x211"
+	  SrcPort		  3
+	  Points		  [15, 0]
+	  Branch {
+	    DstBlock		    "Terminator"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 40]
+	    DstBlock		    "Display"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Lawicel CAN\nReceive 0x211"
+	  SrcPort		  1
+	  Points		  [45, 0]
+	  Branch {
+	    DstBlock		    "Sum"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 0]
+	    Branch {
+	      DstBlock		      "Switch"
+	      DstPort		      2
+	    }
+	    Branch {
+	      Points		      [0, 10]
+	      DstBlock		      "Switch"
+	      DstPort		      3
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "-360/8000"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Steering Position"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain4"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x201"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant11"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  DstBlock		  "-360/8000"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Inputs"
+	  SrcPort		  1
+	  Points		  [0, 55]
+	  DstBlock		  "Demux"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  1
+	  DstBlock		  "Gain4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  2
+	  Points		  [25, 0; 0, 35]
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  DstBlock		  "Data Type Conversion"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Data Type Conversion"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x201"
+	  DstPort		  3
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Senso Wheel 2.0\nwith Lawicel CAN"
+      Ports		      [1, 1]
+      Position		      [480, 23, 560, 77]
+      Orientation	      "left"
+      Priority		      "3"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      MaskHideContents	      off
+      MaskDisplay	      "image(imread('SensoDrive.jpg'))"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Senso Wheel 2.0\nwith Lawicel CAN"
+	Location		[16, 52, 882, 695]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Torque, Vx1"
+	  Position		  [336, 15, 374, 30]
+	  Orientation		  "down"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "-360/40000"
+	  Position		  [565, 253, 625, 287]
+	  Gain			  "-0.009"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  Position		  [465, 94, 490, 116]
+	  ShowName		  off
+	  Value			  "20"
+	  OutDataTypeStr	  "uint16"
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  Position		  [100, 73, 120, 87]
+	  ShowName		  off
+	  Value			  "4"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant10"
+	  Position		  [105, 339, 130, 361]
+	  ShowName		  off
+	  Value			  "100"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant11"
+	  Position		  [405, 213, 440, 237]
+	  ShowName		  off
+	  Value			  "hex2dec('100000000')"
+	  VectorParams1D	  off
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  Position		  [465, 155, 490, 175]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint16"
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant3"
+	  Position		  [100, 123, 120, 137]
+	  ShowName		  off
+	  Value			  "2"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant4"
+	  Position		  [105, 164, 130, 186]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant5"
+	  Position		  [105, 200, 130, 220]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant6"
+	  Position		  [105, 233, 130, 257]
+	  ShowName		  off
+	  Value			  "580"
+	  OutDataTypeStr	  "uint16"
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant7"
+	  Position		  [105, 269, 130, 291]
+	  ShowName		  off
+	  Value			  "0"
+	  OutDataTypeStr	  "int16"
+  OutDataTypeMode   "int16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant9"
+	  Position		  [105, 304, 130, 326]
+	  ShowName		  off
+	  Value			  "200"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "Data Type Conversion"
+	  Position		  [490, 125, 530, 145]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint16"
+	  SaturateOnIntegerOverflow off
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux"
+	  Ports			  [1, 2]
+	  Position		  [385, 63, 390, 112]
+	  BackgroundColor	  "black"
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Outputs		  "2"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain4"
+	  Position		  [435, 65, 460, 85]
+	  ShowName		  off
+	  Gain			  "-1000"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Lawicel CAN\nReceive 0x211"
+	  Ports			  [0, 3]
+	  Position		  [350, 251, 425, 349]
+	  FunctionName		  "LCAN_Read"
+	  Parameters		  "1,CAN_MODE,id,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskPromptString	  "CAN adapter|CAN identifier range:|CAN ID|Sample time|Bit defination (cell array):|Port name (ce"
+	  "ll array):"
+	  MaskStyleString	  "popup(CAN1|CAN2|CAN3|CAN4),popup(Standard (11-bit)|Extended (29-bit)),edit,edit,edit,edit"
+	  MaskVariables		  "adapter=&1;CAN_MODE=&2;id=&3;TimeStep=&4;bits_define=@5;portnames=@6;"
+	  MaskTunableValueString  "on,on,on,on,off,off"
+	  MaskCallbackString	  "|||||"
+	  MaskEnableString	  "on,on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,1);\nset_param(gcb, "
+	  "'Parameters', [adapter(4) ',CAN_MODE,id,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('output',1,'Position ');port_label('output',2,'Speed ');port_label('output',3,'Motor Tor"
+	  "que ');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "CAN1|Standard (11-bit)|529|0.010|{[0:31],[32:47],[48:63]}|{'Position','Speed','Motor Torque'}"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Lawicel CAN\nSend 0x200"
+	  Ports			  [7]
+	  Position		  [180, 124, 295, 366]
+	  Priority		  "3"
+	  FunctionName		  "LCAN_Send"
+	  Parameters		  "1,CAN_MODE,id,len,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskPromptString	  "CAN adapter|CAN identifier range:|CAN ID|Data Length|Sample time|Bit defination (cell array):|P"
+	  "ort name (cell array):"
+	  MaskStyleString	  "popup(CAN1|CAN2|CAN3|CAN4),popup(Standard (11-bit)|Extended (29-bit)),edit,popup(1|2|3|4|5|6|7|8"
+	  "),edit,edit,edit"
+	  MaskVariables		  "adapter=&1;CAN_MODE=&2;id=&3;len=&4;TimeStep=&5;bits_define=@6;portnames=@7;"
+	  MaskTunableValueString  "on,on,on,on,on,off,off"
+	  MaskCallbackString	  "||||||"
+	  MaskEnableString	  "on,on,on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,0);\nset_param(gcb, "
+	  "'Parameters', [adapter(4) ',CAN_MODE,id,len,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('input',1,' Control Word');port_label('input',2,' Operating Mode');port_label('input',3,"
+	  "' Aux. Functions');port_label('input',4,' End Stop Position');port_label('input',5,' Position Offset');port_label('"
+	  "input',6,' Set Torque Limit');port_label('input',7,' Peak Torque Limit');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "CAN1|Standard (11-bit)|512|8|0.025|{[0:3],[4:7],[8:15],[16:31],[32:47],[48:55],[56:63]}|{'Contro"
+	  "l Word','Operating Mode','Aux. Functions','End Stop Position','Position Offset','Set Torque Limit','Peak Torque Lim"
+	  "it'}"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Lawicel CAN\nSend 0x201"
+	  Ports			  [4]
+	  Position		  [570, 57, 680, 183]
+	  FunctionName		  "LCAN_Send"
+	  Parameters		  "1,CAN_MODE,id,len,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskPromptString	  "CAN adapter|CAN identifier range:|CAN ID|Data Length|Sample time|Bit defination (cell array):|P"
+	  "ort name (cell array):"
+	  MaskStyleString	  "popup(CAN1|CAN2|CAN3|CAN4),popup(Standard (11-bit)|Extended (29-bit)),edit,popup(1|2|3|4|5|6|7|8"
+	  "),edit,edit,edit"
+	  MaskVariables		  "adapter=&1;CAN_MODE=&2;id=&3;len=&4;TimeStep=&5;bits_define=@6;portnames=@7;"
+	  MaskTunableValueString  "on,on,on,on,on,off,off"
+	  MaskCallbackString	  "||||||"
+	  MaskEnableString	  "on,on,on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,0);\nset_param(gcb, "
+	  "'Parameters', [adapter(4) ',CAN_MODE,id,len,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('input',1,' Torque Set Value');port_label('input',2,' Friction');port_label('input',3,' "
+	  "Damping');port_label('input',4,' Spring Stiffness');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "CAN1|Standard (11-bit)|513|8|0.02|{[0:15],[16:31],[32:47],[48:63]}|{'Torque Set Value','Friction"
+	  "','Damping','Spring Stiffness'}"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "SD-LC Monitor"
+	  Ports			  [0, 1]
+	  Position		  [90, 30, 160, 50]
+	  Orientation		  "left"
+	  NamePlacement		  "alternate"
+	  Priority		  "4"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "SD-LC Monitor"
+	    Location		    [48, 52, 845, 878]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator"
+	      Ports		      [1, 1]
+	      Position		      [480, 16, 520, 54]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('2')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator1"
+	      Ports		      [1, 1]
+	      Position		      [480, 66, 520, 104]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('4')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator10"
+	      Ports		      [1, 1]
+	      Position		      [480, 469, 520, 511]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('800')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator11"
+	      Ports		      [1, 1]
+	      Position		      [480, 514, 520, 556]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('2000')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator12"
+	      Ports		      [1, 1]
+	      Position		      [480, 558, 520, 602]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('4000')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator2"
+	      Ports		      [1, 1]
+	      Position		      [480, 110, 520, 150]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('8')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator3"
+	      Ports		      [1, 1]
+	      Position		      [480, 156, 520, 194]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('10')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator4"
+	      Ports		      [1, 1]
+	      Position		      [480, 200, 520, 240]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('20')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator5"
+	      Ports		      [1, 1]
+	      Position		      [480, 244, 520, 286]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('40')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator6"
+	      Ports		      [1, 1]
+	      Position		      [480, 289, 520, 331]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('80')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator7"
+	      Ports		      [1, 1]
+	      Position		      [480, 333, 520, 377]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('100')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator8"
+	      Ports		      [1, 1]
+	      Position		      [480, 379, 520, 421]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('200')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator9"
+	      Ports		      [1, 1]
+	      Position		      [480, 425, 520, 465]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('400')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Data Type Conversion"
+	      Position		      [160, 63, 210, 87]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint16"
+	      SaturateOnIntegerOverflow	off
+  OutDataTypeMode   "uint16"
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Data Type Conversion1"
+	      Position		      [160, 153, 210, 177]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint16"
+	      SaturateOnIntegerOverflow	off
+  OutDataTypeMode   "uint16"
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Demo mode"
+	      Ports		      [1]
+	      Position		      [555, 299, 645, 321]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display"
+	      Ports		      [1]
+	      Position		      [235, 64, 325, 86]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display1"
+	      Ports		      [1]
+	      Position		      [235, 154, 325, 176]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display2"
+	      Ports		      [1]
+	      Position		      [200, 243, 285, 267]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display3"
+	      Ports		      [1]
+	      Position		      [200, 333, 285, 357]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Encoder index"
+	      Ports		      [1]
+	      Position		      [555, 479, 645, 501]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "End Stops switched on"
+	      Ports		      [1]
+	      Position		      [555, 434, 645, 456]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Error occurred"
+	      Ports		      [1]
+	      Position		      [555, 119, 645, 141]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "High level mode"
+	      Ports		      [1]
+	      Position		      [555, 164, 645, 186]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "Lawicel CAN\nReceive 0x210"
+	      Ports		      [0, 4]
+	      Position		      [15, 28, 140, 392]
+	      FunctionName	      "LCAN_Read"
+	      Parameters	      "1,CAN_MODE,id,TimeStep,nOut,bits_define"
+	      EnableBusSupport	      off
+	      MaskPromptString	      "CAN adapter|CAN identifier range:|CAN ID|Sample time|Bit defination (cell array):|Port "
+	      "name (cell array):"
+	      MaskStyleString	      "popup(CAN1|CAN2|CAN3|CAN4),popup(Standard (11-bit)|Extended (29-bit)),edit,edit,edit,edit"
+	      MaskVariables	      "adapter=&1;CAN_MODE=&2;id=&3;TimeStep=&4;bits_define=@5;portnames=@6;"
+	      MaskTunableValueString  "on,on,on,on,off,off"
+	      MaskCallbackString      "|||||"
+	      MaskEnableString	      "on,on,on,on,on,on"
+	      MaskVisibilityString    "on,on,on,on,on,on"
+	      MaskToolTipString	      "on,on,on,on,on,on"
+	      MaskInitialization      "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,1);\nset_para"
+	      "m(gcb, 'Parameters', [adapter(4) ',CAN_MODE,id,TimeStep,nOut,bits_define']);\n"
+	      MaskDisplay	      "port_label('output',1,'Status ');port_label('output',2,'Errors ');port_label('output',3,'End"
+	      " Stop Position ');port_label('output',4,'Encodeer Index Position ');"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      on
+	      MaskIconRotate	      "none"
+	      MaskIconUnits	      "autoscale"
+	      MaskValueString	      "CAN1|Standard (11-bit)|528|0.1|{[0:15],[16:31],[32:47],[48:63]}|{'Status','Errors','End "
+	      "Stop Position','Encodeer Index Position'}"
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Low level mode"
+	      Ports		      [1]
+	      Position		      [555, 209, 645, 231]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Motor Active"
+	      Ports		      [1]
+	      Position		      [555, 74, 645, 96]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Motor protection active"
+	      Ports		      [1]
+	      Position		      [555, 389, 645, 411]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Position Ref Completed"
+	      Ports		      [1]
+	      Position		      [555, 524, 645, 546]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Position Reference"
+	      Ports		      [1]
+	      Position		      [555, 254, 645, 276]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "State Ready"
+	      Ports		      [1]
+	      Position		      [555, 34, 645, 56]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Test CPU Watchdog Successfull"
+	      Ports		      [1]
+	      Position		      [555, 569, 645, 591]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Watchdog switched off"
+	      Ports		      [1]
+	      Position		      [555, 344, 645, 366]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Ready"
+	      Position		      [685, 13, 715, 27]
+	      IconDisplay	      "Port number"
+	      InitialOutput	      "0"
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator12"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Test CPU Watchdog Successfull"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator11"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Position Ref Completed"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator10"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Encoder index"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator9"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "End Stops switched on"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator8"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Motor protection active"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator7"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Watchdog switched off"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator6"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Demo mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator5"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Position Reference"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator4"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Low level mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator3"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "High level mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator2"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Error occurred"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator1"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Motor Active"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator"
+	      SrcPort		      1
+	      Points		      [0, 0; 5, 0]
+	      Branch {
+		Points			[10, 0]
+		DstBlock		"State Ready"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -15]
+		DstBlock		"Ready"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Data Type Conversion1"
+	      SrcPort		      1
+	      DstBlock		      "Display1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Labels		      [0, 0]
+	      SrcBlock		      "Data Type Conversion"
+	      SrcPort		      1
+	      Points		      [5, 0]
+	      Branch {
+		DstBlock		"Display"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -40; 230, 0]
+		Branch {
+		  Points		  [0, 50]
+		  Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator7"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator8"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator9"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator10"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator11"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    DstBlock		    "Bitwise\nOperator12"
+		    DstPort		    1
+		    }
+		    }
+		    }
+		    }
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator6"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator5"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator4"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator3"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator2"
+		    DstPort		    1
+		    }
+		  }
+		  Branch {
+		    DstBlock		    "Bitwise\nOperator1"
+		    DstPort		    1
+		  }
+		}
+		Branch {
+		  DstBlock		  "Bitwise\nOperator"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Lawicel CAN\nReceive 0x210"
+	      SrcPort		      4
+	      DstBlock		      "Display3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Lawicel CAN\nReceive 0x210"
+	      SrcPort		      3
+	      DstBlock		      "Display2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Lawicel CAN\nReceive 0x210"
+	      SrcPort		      2
+	      DstBlock		      "Data Type Conversion1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Lawicel CAN\nReceive 0x210"
+	      SrcPort		      1
+	      DstBlock		      "Data Type Conversion"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  Position		  [505, 66, 520, 84]
+	  ShowName		  off
+	  UpperLimit		  "14500"
+	  LowerLimit		  "-14500"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  Position		  [445, 126, 460, 144]
+	  ShowName		  off
+	  UpperLimit		  "200"
+	  LowerLimit		  "40"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  Ports			  [2, 1]
+	  Position		  [465, 215, 485, 235]
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|-+"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+  OutDataTypeMode   "Inherit via internal rule"
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  Position		  [140, 69, 155, 141]
+	  ShowName		  off
+	  Threshold		  "0.5"
+	  InputSameDT		  off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch1"
+	  Position		  [510, 251, 530, 289]
+	  Threshold		  "100000"
+	  InputSameDT		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  Position		  [470, 320, 490, 340]
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator1"
+	  Position		  [470, 290, 490, 310]
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Triggered\nSubsystem"
+	  Ports			  [0, 1, 0, 1]
+	  Position		  [35, 95, 120, 115]
+	  ShowName		  off
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Triggered\nSubsystem"
+	    Location		    [371, 234, 732, 576]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      TriggerPort
+	      Name		      "Trigger"
+	      Ports		      []
+	      Position		      [50, 15, 70, 35]
+	      StatesWhenEnabling      "held"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant3"
+	      Position		      [25, 98, 45, 112]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint8"
+  OutDataTypeMode   "uint8"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Ready"
+	      Position		      [170, 98, 200, 112]
+	      IconDisplay	      "Port number"
+	      InitialOutput	      "0"
+	    }
+	    Line {
+	      SrcBlock		      "Constant3"
+	      SrcPort		      1
+	      DstBlock		      "Ready"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Steering Position"
+	  Position		  [675, 263, 705, 277]
+	  FontSize		  12
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Switch1"
+	  SrcPort		  1
+	  DstBlock		  "-360/40000"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "Switch1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant11"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "-360/40000"
+	  SrcPort		  1
+	  DstBlock		  "Steering Position"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Lawicel CAN\nReceive 0x211"
+	  SrcPort		  1
+	  Points		  [0, 0; 45, 0]
+	  Branch {
+	    DstBlock		    "Sum"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 0]
+	    Branch {
+	      DstBlock		      "Switch1"
+	      DstPort		      2
+	    }
+	    Branch {
+	      Points		      [0, 10]
+	      DstBlock		      "Switch1"
+	      DstPort		      3
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "Lawicel CAN\nReceive 0x211"
+	  SrcPort		  3
+	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Lawicel CAN\nReceive 0x211"
+	  SrcPort		  2
+	  DstBlock		  "Terminator1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Data Type Conversion"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x201"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  DstBlock		  "Data Type Conversion"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  2
+	  Points		  [25, 0; 0, 35]
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  1
+	  DstBlock		  "Gain4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Torque, Vx1"
+	  SrcPort		  1
+	  Points		  [0, 55]
+	  DstBlock		  "Demux"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x201"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain4"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x201"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x201"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Triggered\nSubsystem"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant3"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "SD-LC Monitor"
+	  SrcPort		  1
+	  Points		  [-10, 0]
+	  DstBlock		  "Triggered\nSubsystem"
+	  DstPort		  trigger
+	}
+	Line {
+	  SrcBlock		  "Constant10"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "Constant9"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "Constant7"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "Constant6"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Constant5"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Constant4"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  2
+	}
+	Annotation {
+	  Name			  "SensoDrive Wheel Firmware version 2.0 only"
+	  Position		  [407, 426]
+	  ForegroundColor	  "red"
+	  BackgroundColor	  "cyan"
+	  DropShadow		  on
+	  FontSize		  22
+	  FontWeight		  "bold"
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Senso Wheel 2.0\nwith Peak CAN"
+      Ports		      [1, 1]
+      Position		      [495, 158, 575, 212]
+      Orientation	      "left"
+      Priority		      "3"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      MaskHideContents	      off
+      MaskDisplay	      "image(imread('SensoDrive.jpg'))"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Senso Wheel 2.0\nwith Peak CAN"
+	Location		[152, 52, 1037, 723]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Torque, Vx1"
+	  Position		  [336, 15, 374, 30]
+	  Orientation		  "down"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "-360/40000"
+	  Position		  [580, 253, 640, 287]
+	  Gain			  "-0.009"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  Position		  [465, 94, 490, 116]
+	  ShowName		  off
+	  Value			  "20"
+	  OutDataTypeStr	  "uint16"
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  Position		  [100, 73, 120, 87]
+	  ShowName		  off
+	  Value			  "4"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant10"
+	  Position		  [105, 339, 130, 361]
+	  ShowName		  off
+	  Value			  "100"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant11"
+	  Position		  [420, 213, 455, 237]
+	  ShowName		  off
+	  Value			  "hex2dec('100000000')"
+	  VectorParams1D	  off
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  Position		  [465, 155, 490, 175]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint16"
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant3"
+	  Position		  [100, 123, 120, 137]
+	  ShowName		  off
+	  Value			  "2"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant4"
+	  Position		  [105, 164, 130, 186]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant5"
+	  Position		  [105, 200, 130, 220]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant6"
+	  Position		  [105, 233, 130, 257]
+	  ShowName		  off
+	  Value			  "580"
+	  OutDataTypeStr	  "uint16"
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant7"
+	  Position		  [105, 269, 130, 291]
+	  ShowName		  off
+	  Value			  "0"
+	  OutDataTypeStr	  "int16"
+  OutDataTypeMode   "int16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant9"
+	  Position		  [105, 304, 130, 326]
+	  ShowName		  off
+	  Value			  "200"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "Data Type Conversion"
+	  Position		  [490, 125, 530, 145]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint16"
+	  SaturateOnIntegerOverflow off
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux"
+	  Ports			  [1, 2]
+	  Position		  [385, 63, 390, 112]
+	  BackgroundColor	  "black"
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Outputs		  "2"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain4"
+	  Position		  [435, 65, 460, 85]
+	  ShowName		  off
+	  Gain			  "-1000"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Peak CAN\nReceive 0x211"
+	  Ports			  [0, 3]
+	  Position		  [345, 255, 430, 345]
+	  AncestorBlock		  "Solver_SF/Lawicel CAN\nReceive"
+	  FunctionName		  "PCAN_Read"
+	  Parameters		  "id,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskType		  "CarSim DS"
+	  MaskDescription	  "Lawicel CAN Receive."
+	  MaskPromptString	  "CAN ID|Sample time|Bit defination (cell array):|Port name (cell array):"
+	  MaskStyleString	  "edit,edit,edit,edit"
+	  MaskVariables		  "id=&1;TimeStep=&2;bits_define=@3;portnames=@4;"
+	  MaskTunableValueString  "on,on,off,off"
+	  MaskCallbackString	  "|||"
+	  MaskEnableString	  "on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,1);\nset_param(gcb, "
+	  "'Parameters', ['id,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('output',1,'Position ');port_label('output',2,'Speed ');port_label('output',3,'Motor Tor"
+	  "que ');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "529|0.01|{[0:31],[32:47],[48:63]}|{'Position','Speed','Motor Torque'}"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Peak CAN\nSend 0x200"
+	  Ports			  [7]
+	  Position		  [185, 122, 290, 368]
+	  AncestorBlock		  "Solver_SF/Peak CAN\nSend"
+	  FunctionName		  "PCAN_Send"
+	  Parameters		  "id,len,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskDescription	  "Peak-System USB CAN send"
+	  MaskPromptString	  "CAN ID|Data Length|Sample time|Bit defination (cell array):|Port name (cell array):"
+	  MaskStyleString	  "edit,popup(1|2|3|4|5|6|7|8),edit,edit,edit"
+	  MaskVariables		  "id=&1;len=&2;TimeStep=&3;bits_define=@4;portnames=@5;"
+	  MaskTunableValueString  "on,on,on,off,off"
+	  MaskCallbackString	  "||||"
+	  MaskEnableString	  "on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,0);\nset_param(gcb, "
+	  "'Parameters', ['id,len,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('input',1,' Control Word');port_label('input',2,' Operating Mode');port_label('input',3,"
+	  "' Aux. Functions');port_label('input',4,' End Stop Position');port_label('input',5,' Position Offset');port_label('"
+	  "input',6,' Set Torque Limit');port_label('input',7,' Peak Torque Limit');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "512|8|0.025|{[0:3],[4:7],[8:15],[16:31],[32:47],[48:55],[56:63]}|{'Control Word','Operating Mode"
+	  "','Aux. Functions','End Stop Position','Position Offset','Set Torque Limit','Peak Torque Limit'}"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Peak CAN\nSend 0x201"
+	  Ports			  [4]
+	  Position		  [570, 61, 665, 179]
+	  AncestorBlock		  "Solver_SF/Peak CAN\nSend"
+	  FunctionName		  "PCAN_Send"
+	  Parameters		  "id,len,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskDescription	  "Peak-System USB CAN send"
+	  MaskPromptString	  "CAN ID|Data Length|Sample time|Bit defination (cell array):|Port name (cell array):"
+	  MaskStyleString	  "edit,popup(1|2|3|4|5|6|7|8),edit,edit,edit"
+	  MaskVariables		  "id=&1;len=&2;TimeStep=&3;bits_define=@4;portnames=@5;"
+	  MaskTunableValueString  "on,on,on,off,off"
+	  MaskCallbackString	  "||||"
+	  MaskEnableString	  "on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,0);\nset_param(gcb, "
+	  "'Parameters', ['id,len,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('input',1,' Torque Set Value');port_label('input',2,' Friction');port_label('input',3,' "
+	  "Damping');port_label('input',4,' Spring Stiffness');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "513|8|0.02|{[0:15],[16:31],[32:47],[48:63]}|{'Torque Set Value','Friction','Damping','Spring Sti"
+	  "ffness'}"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "SD-LC Monitor"
+	  Ports			  [0, 1]
+	  Position		  [90, 30, 160, 50]
+	  Orientation		  "left"
+	  NamePlacement		  "alternate"
+	  Priority		  "4"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "SD-LC Monitor"
+	    Location		    [565, 52, 1362, 878]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator"
+	      Ports		      [1, 1]
+	      Position		      [480, 16, 520, 54]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('2')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator1"
+	      Ports		      [1, 1]
+	      Position		      [480, 66, 520, 104]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('4')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator10"
+	      Ports		      [1, 1]
+	      Position		      [480, 469, 520, 511]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('800')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator11"
+	      Ports		      [1, 1]
+	      Position		      [480, 514, 520, 556]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('2000')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator12"
+	      Ports		      [1, 1]
+	      Position		      [480, 558, 520, 602]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('4000')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator2"
+	      Ports		      [1, 1]
+	      Position		      [480, 110, 520, 150]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('8')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator3"
+	      Ports		      [1, 1]
+	      Position		      [480, 156, 520, 194]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('10')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator4"
+	      Ports		      [1, 1]
+	      Position		      [480, 200, 520, 240]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('20')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator5"
+	      Ports		      [1, 1]
+	      Position		      [480, 244, 520, 286]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('40')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator6"
+	      Ports		      [1, 1]
+	      Position		      [480, 289, 520, 331]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('80')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator7"
+	      Ports		      [1, 1]
+	      Position		      [480, 333, 520, 377]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('100')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator8"
+	      Ports		      [1, 1]
+	      Position		      [480, 379, 520, 421]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('200')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator9"
+	      Ports		      [1, 1]
+	      Position		      [480, 425, 520, 465]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('400')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Data Type Conversion"
+	      Position		      [175, 63, 225, 87]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint16"
+	      SaturateOnIntegerOverflow	off
+  OutDataTypeMode   "uint16"
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Data Type Conversion1"
+	      Position		      [175, 153, 225, 177]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint16"
+	      SaturateOnIntegerOverflow	off
+  OutDataTypeMode   "uint16"
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Demo mode"
+	      Ports		      [1]
+	      Position		      [555, 299, 645, 321]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display"
+	      Ports		      [1]
+	      Position		      [260, 64, 350, 86]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display1"
+	      Ports		      [1]
+	      Position		      [260, 154, 350, 176]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display2"
+	      Ports		      [1]
+	      Position		      [225, 243, 310, 267]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display3"
+	      Ports		      [1]
+	      Position		      [225, 333, 310, 357]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Encoder index"
+	      Ports		      [1]
+	      Position		      [555, 479, 645, 501]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "End Stops switched on"
+	      Ports		      [1]
+	      Position		      [555, 434, 645, 456]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Error occurred"
+	      Ports		      [1]
+	      Position		      [555, 119, 645, 141]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "High level mode"
+	      Ports		      [1]
+	      Position		      [555, 164, 645, 186]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Low level mode"
+	      Ports		      [1]
+	      Position		      [555, 209, 645, 231]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Motor Active"
+	      Ports		      [1]
+	      Position		      [555, 74, 645, 96]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Motor protection active"
+	      Ports		      [1]
+	      Position		      [555, 389, 645, 411]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "Peak CAN\nReceive 0x210"
+	      Ports		      [0, 4]
+	      Position		      [25, 28, 150, 392]
+	      FunctionName	      "PCAN_Read"
+	      Parameters	      "id,TimeStep,nOut,bits_define"
+	      EnableBusSupport	      off
+	      MaskPromptString	      "CAN ID|Sample time|Bit defination (cell array):|Port name (cell array):"
+	      MaskStyleString	      "edit,edit,edit,edit"
+	      MaskVariables	      "id=&1;TimeStep=&2;bits_define=@3;portnames=@4;"
+	      MaskTunableValueString  "on,on,off,off"
+	      MaskCallbackString      "|||"
+	      MaskEnableString	      "on,on,on,on"
+	      MaskVisibilityString    "on,on,on,on"
+	      MaskToolTipString	      "on,on,on,on"
+	      MaskInitialization      "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,1);\nset_para"
+	      "m(gcb, 'Parameters', ['id,TimeStep,nOut,bits_define']);\n"
+	      MaskDisplay	      "port_label('output',1,'Status ');port_label('output',2,'Errors ');port_label('output',3,'End"
+	      " Stop Position ');port_label('output',4,'Encodeer Index Position ');"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      on
+	      MaskIconRotate	      "none"
+	      MaskIconUnits	      "autoscale"
+	      MaskValueString	      "528|0.1|{[0:15],[16:31],[32:47],[48:63]}|{'Status','Errors','End Stop Position','Encodee"
+	      "r Index Position'}"
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Position Ref Completed"
+	      Ports		      [1]
+	      Position		      [555, 524, 645, 546]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Position Reference"
+	      Ports		      [1]
+	      Position		      [555, 254, 645, 276]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "State Ready"
+	      Ports		      [1]
+	      Position		      [555, 34, 645, 56]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Test CPU Watchdog Successfull"
+	      Ports		      [1]
+	      Position		      [555, 569, 645, 591]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Watchdog switched off"
+	      Ports		      [1]
+	      Position		      [555, 344, 645, 366]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Ready"
+	      Position		      [685, 13, 715, 27]
+	      IconDisplay	      "Port number"
+	      InitialOutput	      "0"
+	    }
+	    Line {
+	      Labels		      [0, 0]
+	      SrcBlock		      "Data Type Conversion"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      Branch {
+		DstBlock		"Display"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 0; 0, -40; 205, 0]
+		Branch {
+		  Points		  [0, 50]
+		  Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator7"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator8"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator9"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator10"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator11"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    DstBlock		    "Bitwise\nOperator12"
+		    DstPort		    1
+		    }
+		    }
+		    }
+		    }
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator6"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator5"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator4"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator3"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator2"
+		    DstPort		    1
+		    }
+		  }
+		  Branch {
+		    DstBlock		    "Bitwise\nOperator1"
+		    DstPort		    1
+		  }
+		}
+		Branch {
+		  DstBlock		  "Bitwise\nOperator"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator12"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Test CPU Watchdog Successfull"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator11"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Position Ref Completed"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator10"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Encoder index"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator9"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "End Stops switched on"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator8"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Motor protection active"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator7"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Watchdog switched off"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator6"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Demo mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator5"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Position Reference"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator4"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Low level mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator3"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "High level mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator2"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Error occurred"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator1"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Motor Active"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator"
+	      SrcPort		      1
+	      Points		      [0, 0; 5, 0]
+	      Branch {
+		Points			[10, 0]
+		DstBlock		"State Ready"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -15]
+		DstBlock		"Ready"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Data Type Conversion1"
+	      SrcPort		      1
+	      DstBlock		      "Display1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Peak CAN\nReceive 0x210"
+	      SrcPort		      4
+	      DstBlock		      "Display3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Peak CAN\nReceive 0x210"
+	      SrcPort		      3
+	      DstBlock		      "Display2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Peak CAN\nReceive 0x210"
+	      SrcPort		      2
+	      DstBlock		      "Data Type Conversion1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Peak CAN\nReceive 0x210"
+	      SrcPort		      1
+	      DstBlock		      "Data Type Conversion"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  Position		  [505, 66, 520, 84]
+	  ShowName		  off
+	  UpperLimit		  "14500"
+	  LowerLimit		  "-14500"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  Position		  [445, 126, 460, 144]
+	  ShowName		  off
+	  UpperLimit		  "200"
+	  LowerLimit		  "40"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  Ports			  [2, 1]
+	  Position		  [480, 215, 500, 235]
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|-+"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+  OutDataTypeMode   "Inherit via internal rule"
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  Position		  [140, 69, 155, 141]
+	  ShowName		  off
+	  Threshold		  "0.5"
+	  InputSameDT		  off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch1"
+	  Position		  [525, 251, 545, 289]
+	  Threshold		  "100000"
+	  InputSameDT		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  Position		  [485, 320, 505, 340]
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator1"
+	  Position		  [485, 290, 505, 310]
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Triggered\nSubsystem"
+	  Ports			  [0, 1, 0, 1]
+	  Position		  [35, 95, 120, 115]
+	  ShowName		  off
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Triggered\nSubsystem"
+	    Location		    [371, 234, 732, 576]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      TriggerPort
+	      Name		      "Trigger"
+	      Ports		      []
+	      Position		      [50, 15, 70, 35]
+	      StatesWhenEnabling      "held"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant3"
+	      Position		      [25, 98, 45, 112]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint8"
+  OutDataTypeMode   "uint8"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Ready"
+	      Position		      [170, 98, 200, 112]
+	      IconDisplay	      "Port number"
+	      InitialOutput	      "0"
+	    }
+	    Line {
+	      SrcBlock		      "Constant3"
+	      SrcPort		      1
+	      DstBlock		      "Ready"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Steering Position"
+	  Position		  [675, 263, 705, 277]
+	  FontSize		  12
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Switch1"
+	  SrcPort		  1
+	  DstBlock		  "-360/40000"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "Switch1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant11"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "-360/40000"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Steering Position"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Peak CAN\nReceive 0x211"
+	  SrcPort		  1
+	  Points		  [55, 0]
+	  Branch {
+	    DstBlock		    "Sum"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 0]
+	    Branch {
+	      DstBlock		      "Switch1"
+	      DstPort		      2
+	    }
+	    Branch {
+	      Points		      [0, 10]
+	      DstBlock		      "Switch1"
+	      DstPort		      3
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "Peak CAN\nReceive 0x211"
+	  SrcPort		  3
+	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Peak CAN\nReceive 0x211"
+	  SrcPort		  2
+	  DstBlock		  "Terminator1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Data Type Conversion"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x201"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  DstBlock		  "Data Type Conversion"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  2
+	  Points		  [25, 0; 0, 35]
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  1
+	  DstBlock		  "Gain4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Torque, Vx1"
+	  SrcPort		  1
+	  Points		  [0, 55]
+	  DstBlock		  "Demux"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x201"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain4"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x201"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x201"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Triggered\nSubsystem"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant3"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, 35]
+	  DstBlock		  "Peak CAN\nSend 0x200"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "SD-LC Monitor"
+	  SrcPort		  1
+	  Points		  [-10, 0]
+	  DstBlock		  "Triggered\nSubsystem"
+	  DstPort		  trigger
+	}
+	Line {
+	  SrcBlock		  "Constant10"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x200"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "Constant9"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x200"
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "Constant7"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x200"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "Constant6"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x200"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Constant5"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x200"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Constant4"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x200"
+	  DstPort		  2
+	}
+	Annotation {
+	  Name			  "SensoDrive Wheel Firmware version 2.0 only"
+	  Position		  [407, 426]
+	  ForegroundColor	  "red"
+	  BackgroundColor	  "cyan"
+	  DropShadow		  on
+	  FontSize		  22
+	  FontWeight		  "bold"
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Senso Wheel VEM\nwith Lawicel CAN"
+      Ports		      [1, 1]
+      Position		      [505, 273, 585, 327]
+      Orientation	      "left"
+      Priority		      "3"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      MaskHideContents	      off
+      MaskDisplay	      "image(imread('SensoDrive.jpg'))"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Senso Wheel VEM\nwith Lawicel CAN"
+	Location		[16, 52, 882, 695]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Torque, Vx1"
+	  Position		  [336, 15, 374, 30]
+	  Orientation		  "down"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "-360/8000"
+	  Position		  [565, 253, 625, 287]
+	  Gain			  "-0.045"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  Position		  [465, 94, 490, 116]
+	  ShowName		  off
+	  Value			  "20"
+	  OutDataTypeStr	  "uint16"
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  Position		  [100, 73, 120, 87]
+	  ShowName		  off
+	  Value			  "4"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant10"
+	  Position		  [105, 339, 130, 361]
+	  ShowName		  off
+	  Value			  "100"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant11"
+	  Position		  [405, 213, 440, 237]
+	  ShowName		  off
+	  Value			  "hex2dec('100000000')"
+	  VectorParams1D	  off
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  Position		  [465, 155, 490, 175]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint16"
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant3"
+	  Position		  [100, 123, 120, 137]
+	  ShowName		  off
+	  Value			  "2"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant4"
+	  Position		  [105, 164, 130, 186]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant5"
+	  Position		  [105, 200, 130, 220]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant6"
+	  Position		  [105, 233, 130, 257]
+	  ShowName		  off
+	  Value			  "580"
+	  OutDataTypeStr	  "uint16"
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant7"
+	  Position		  [105, 269, 130, 291]
+	  ShowName		  off
+	  Value			  "0"
+	  OutDataTypeStr	  "int16"
+  OutDataTypeMode   "int16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant9"
+	  Position		  [105, 304, 130, 326]
+	  ShowName		  off
+	  Value			  "200"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "Data Type Conversion"
+	  Position		  [490, 125, 530, 145]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint16"
+	  SaturateOnIntegerOverflow off
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux"
+	  Ports			  [1, 2]
+	  Position		  [385, 63, 390, 112]
+	  BackgroundColor	  "black"
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Outputs		  "2"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain4"
+	  Position		  [435, 65, 460, 85]
+	  ShowName		  off
+	  Gain			  "-1000"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Lawicel CAN\nReceive 0x211"
+	  Ports			  [0, 3]
+	  Position		  [350, 251, 425, 349]
+	  FunctionName		  "LCAN_Read"
+	  Parameters		  "1,CAN_MODE,id,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskPromptString	  "CAN adapter|CAN identifier range:|CAN ID|Sample time|Bit defination (cell array):|Port name (ce"
+	  "ll array):"
+	  MaskStyleString	  "popup(CAN1|CAN2|CAN3|CAN4),popup(Standard (11-bit)|Extended (29-bit)),edit,edit,edit,edit"
+	  MaskVariables		  "adapter=&1;CAN_MODE=&2;id=&3;TimeStep=&4;bits_define=@5;portnames=@6;"
+	  MaskTunableValueString  "on,on,on,on,off,off"
+	  MaskCallbackString	  "|||||"
+	  MaskEnableString	  "on,on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,1);\nset_param(gcb, "
+	  "'Parameters', [adapter(4) ',CAN_MODE,id,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('output',1,'Position ');port_label('output',2,'Speed ');port_label('output',3,'Motor Tor"
+	  "que ');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "CAN1|Standard (11-bit)|529|0.010|{[0:31],[32:47],[48:63]}|{'Position','Speed','Motor Torque'}"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Lawicel CAN\nSend 0x200"
+	  Ports			  [7]
+	  Position		  [180, 124, 295, 366]
+	  Priority		  "3"
+	  FunctionName		  "LCAN_Send"
+	  Parameters		  "1,CAN_MODE,id,len,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskPromptString	  "CAN adapter|CAN identifier range:|CAN ID|Data Length|Sample time|Bit defination (cell array):|P"
+	  "ort name (cell array):"
+	  MaskStyleString	  "popup(CAN1|CAN2|CAN3|CAN4),popup(Standard (11-bit)|Extended (29-bit)),edit,popup(1|2|3|4|5|6|7|8"
+	  "),edit,edit,edit"
+	  MaskVariables		  "adapter=&1;CAN_MODE=&2;id=&3;len=&4;TimeStep=&5;bits_define=@6;portnames=@7;"
+	  MaskTunableValueString  "on,on,on,on,on,off,off"
+	  MaskCallbackString	  "||||||"
+	  MaskEnableString	  "on,on,on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,0);\nset_param(gcb, "
+	  "'Parameters', [adapter(4) ',CAN_MODE,id,len,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('input',1,' Control Word');port_label('input',2,' Operating Mode');port_label('input',3,"
+	  "' Aux. Functions');port_label('input',4,' End Stop Position');port_label('input',5,' Position Offset');port_label('"
+	  "input',6,' Set Torque Limit');port_label('input',7,' Peak Torque Limit');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "CAN1|Standard (11-bit)|512|8|0.025|{[0:3],[4:7],[8:15],[16:31],[32:47],[48:55],[56:63]}|{'Contro"
+	  "l Word','Operating Mode','Aux. Functions','End Stop Position','Position Offset','Set Torque Limit','Peak Torque Lim"
+	  "it'}"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Lawicel CAN\nSend 0x201"
+	  Ports			  [4]
+	  Position		  [570, 57, 680, 183]
+	  FunctionName		  "LCAN_Send"
+	  Parameters		  "1,CAN_MODE,id,len,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskPromptString	  "CAN adapter|CAN identifier range:|CAN ID|Data Length|Sample time|Bit defination (cell array):|P"
+	  "ort name (cell array):"
+	  MaskStyleString	  "popup(CAN1|CAN2|CAN3|CAN4),popup(Standard (11-bit)|Extended (29-bit)),edit,popup(1|2|3|4|5|6|7|8"
+	  "),edit,edit,edit"
+	  MaskVariables		  "adapter=&1;CAN_MODE=&2;id=&3;len=&4;TimeStep=&5;bits_define=@6;portnames=@7;"
+	  MaskTunableValueString  "on,on,on,on,on,off,off"
+	  MaskCallbackString	  "||||||"
+	  MaskEnableString	  "on,on,on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,0);\nset_param(gcb, "
+	  "'Parameters', [adapter(4) ',CAN_MODE,id,len,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('input',1,' Torque Set Value');port_label('input',2,' Friction');port_label('input',3,' "
+	  "Damping');port_label('input',4,' Spring Stiffness');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "CAN1|Standard (11-bit)|513|8|0.02|{[0:15],[16:31],[32:47],[48:63]}|{'Torque Set Value','Friction"
+	  "','Damping','Spring Stiffness'}"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "SD-LC Monitor"
+	  Ports			  [0, 1]
+	  Position		  [90, 30, 160, 50]
+	  Orientation		  "left"
+	  NamePlacement		  "alternate"
+	  Priority		  "4"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "SD-LC Monitor"
+	    Location		    [48, 52, 845, 878]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator"
+	      Ports		      [1, 1]
+	      Position		      [480, 16, 520, 54]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('2')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator1"
+	      Ports		      [1, 1]
+	      Position		      [480, 66, 520, 104]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('4')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator10"
+	      Ports		      [1, 1]
+	      Position		      [480, 469, 520, 511]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('800')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator11"
+	      Ports		      [1, 1]
+	      Position		      [480, 514, 520, 556]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('2000')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator12"
+	      Ports		      [1, 1]
+	      Position		      [480, 558, 520, 602]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('4000')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator2"
+	      Ports		      [1, 1]
+	      Position		      [480, 110, 520, 150]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('8')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator3"
+	      Ports		      [1, 1]
+	      Position		      [480, 156, 520, 194]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('10')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator4"
+	      Ports		      [1, 1]
+	      Position		      [480, 200, 520, 240]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('20')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator5"
+	      Ports		      [1, 1]
+	      Position		      [480, 244, 520, 286]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('40')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator6"
+	      Ports		      [1, 1]
+	      Position		      [480, 289, 520, 331]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('80')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator7"
+	      Ports		      [1, 1]
+	      Position		      [480, 333, 520, 377]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('100')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator8"
+	      Ports		      [1, 1]
+	      Position		      [480, 379, 520, 421]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('200')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator9"
+	      Ports		      [1, 1]
+	      Position		      [480, 425, 520, 465]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('400')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Data Type Conversion"
+	      Position		      [160, 63, 210, 87]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint16"
+	      SaturateOnIntegerOverflow	off
+  OutDataTypeMode   "uint16"
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Data Type Conversion1"
+	      Position		      [160, 153, 210, 177]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint16"
+	      SaturateOnIntegerOverflow	off
+  OutDataTypeMode   "uint16"
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Demo mode"
+	      Ports		      [1]
+	      Position		      [555, 299, 645, 321]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display"
+	      Ports		      [1]
+	      Position		      [235, 64, 325, 86]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display1"
+	      Ports		      [1]
+	      Position		      [235, 154, 325, 176]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display2"
+	      Ports		      [1]
+	      Position		      [200, 243, 285, 267]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display3"
+	      Ports		      [1]
+	      Position		      [200, 333, 285, 357]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Encoder index"
+	      Ports		      [1]
+	      Position		      [555, 479, 645, 501]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "End Stops switched on"
+	      Ports		      [1]
+	      Position		      [555, 434, 645, 456]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Error occurred"
+	      Ports		      [1]
+	      Position		      [555, 119, 645, 141]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "High level mode"
+	      Ports		      [1]
+	      Position		      [555, 164, 645, 186]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "Lawicel CAN\nReceive 0x210"
+	      Ports		      [0, 4]
+	      Position		      [15, 28, 140, 392]
+	      FunctionName	      "LCAN_Read"
+	      Parameters	      "1,CAN_MODE,id,TimeStep,nOut,bits_define"
+	      EnableBusSupport	      off
+	      MaskPromptString	      "CAN adapter|CAN identifier range:|CAN ID|Sample time|Bit defination (cell array):|Port "
+	      "name (cell array):"
+	      MaskStyleString	      "popup(CAN1|CAN2|CAN3|CAN4),popup(Standard (11-bit)|Extended (29-bit)),edit,edit,edit,edit"
+	      MaskVariables	      "adapter=&1;CAN_MODE=&2;id=&3;TimeStep=&4;bits_define=@5;portnames=@6;"
+	      MaskTunableValueString  "on,on,on,on,off,off"
+	      MaskCallbackString      "|||||"
+	      MaskEnableString	      "on,on,on,on,on,on"
+	      MaskVisibilityString    "on,on,on,on,on,on"
+	      MaskToolTipString	      "on,on,on,on,on,on"
+	      MaskInitialization      "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,1);\nset_para"
+	      "m(gcb, 'Parameters', [adapter(4) ',CAN_MODE,id,TimeStep,nOut,bits_define']);\n"
+	      MaskDisplay	      "port_label('output',1,'Status ');port_label('output',2,'Errors ');port_label('output',3,'End"
+	      " Stop Position ');port_label('output',4,'Encodeer Index Position ');"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      on
+	      MaskIconRotate	      "none"
+	      MaskIconUnits	      "autoscale"
+	      MaskValueString	      "CAN1|Standard (11-bit)|528|0.1|{[0:15],[16:31],[32:47],[48:63]}|{'Status','Errors','End "
+	      "Stop Position','Encodeer Index Position'}"
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Low level mode"
+	      Ports		      [1]
+	      Position		      [555, 209, 645, 231]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Motor Active"
+	      Ports		      [1]
+	      Position		      [555, 74, 645, 96]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Motor protection active"
+	      Ports		      [1]
+	      Position		      [555, 389, 645, 411]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Position Ref Completed"
+	      Ports		      [1]
+	      Position		      [555, 524, 645, 546]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Position Reference"
+	      Ports		      [1]
+	      Position		      [555, 254, 645, 276]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "State Ready"
+	      Ports		      [1]
+	      Position		      [555, 34, 645, 56]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Test CPU Watchdog Successfull"
+	      Ports		      [1]
+	      Position		      [555, 569, 645, 591]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Watchdog switched off"
+	      Ports		      [1]
+	      Position		      [555, 344, 645, 366]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Ready"
+	      Position		      [685, 13, 715, 27]
+	      IconDisplay	      "Port number"
+	      InitialOutput	      "0"
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator12"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Test CPU Watchdog Successfull"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator11"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Position Ref Completed"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator10"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Encoder index"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator9"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "End Stops switched on"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator8"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Motor protection active"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator7"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Watchdog switched off"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator6"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Demo mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator5"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Position Reference"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator4"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Low level mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator3"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "High level mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator2"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Error occurred"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator1"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Motor Active"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator"
+	      SrcPort		      1
+	      Points		      [0, 0; 5, 0]
+	      Branch {
+		Points			[10, 0]
+		DstBlock		"State Ready"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -15]
+		DstBlock		"Ready"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Data Type Conversion1"
+	      SrcPort		      1
+	      DstBlock		      "Display1"
+	      DstPort		      1
+	    }
+	    Line {
+	      Labels		      [0, 0]
+	      SrcBlock		      "Data Type Conversion"
+	      SrcPort		      1
+	      Points		      [5, 0]
+	      Branch {
+		DstBlock		"Display"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -40; 230, 0]
+		Branch {
+		  Points		  [0, 50]
+		  Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator7"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator8"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator9"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator10"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator11"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    DstBlock		    "Bitwise\nOperator12"
+		    DstPort		    1
+		    }
+		    }
+		    }
+		    }
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator6"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator5"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator4"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator3"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator2"
+		    DstPort		    1
+		    }
+		  }
+		  Branch {
+		    DstBlock		    "Bitwise\nOperator1"
+		    DstPort		    1
+		  }
+		}
+		Branch {
+		  DstBlock		  "Bitwise\nOperator"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Lawicel CAN\nReceive 0x210"
+	      SrcPort		      4
+	      DstBlock		      "Display3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Lawicel CAN\nReceive 0x210"
+	      SrcPort		      3
+	      DstBlock		      "Display2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Lawicel CAN\nReceive 0x210"
+	      SrcPort		      2
+	      DstBlock		      "Data Type Conversion1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Lawicel CAN\nReceive 0x210"
+	      SrcPort		      1
+	      DstBlock		      "Data Type Conversion"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  Position		  [505, 66, 520, 84]
+	  ShowName		  off
+	  UpperLimit		  "14500"
+	  LowerLimit		  "-14500"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  Position		  [445, 126, 460, 144]
+	  ShowName		  off
+	  UpperLimit		  "200"
+	  LowerLimit		  "40"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  Ports			  [2, 1]
+	  Position		  [465, 215, 485, 235]
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|-+"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+  OutDataTypeMode   "Inherit via internal rule"
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  Position		  [140, 69, 155, 141]
+	  ShowName		  off
+	  Threshold		  "0.5"
+	  InputSameDT		  off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch1"
+	  Position		  [510, 251, 530, 289]
+	  Threshold		  "100000"
+	  InputSameDT		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  Position		  [470, 320, 490, 340]
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator1"
+	  Position		  [470, 290, 490, 310]
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Triggered\nSubsystem"
+	  Ports			  [0, 1, 0, 1]
+	  Position		  [35, 95, 120, 115]
+	  ShowName		  off
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Triggered\nSubsystem"
+	    Location		    [371, 234, 732, 576]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      TriggerPort
+	      Name		      "Trigger"
+	      Ports		      []
+	      Position		      [50, 15, 70, 35]
+	      StatesWhenEnabling      "held"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant3"
+	      Position		      [25, 98, 45, 112]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint8"
+  OutDataTypeMode   "uint8"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Ready"
+	      Position		      [170, 98, 200, 112]
+	      IconDisplay	      "Port number"
+	      InitialOutput	      "0"
+	    }
+	    Line {
+	      SrcBlock		      "Constant3"
+	      SrcPort		      1
+	      DstBlock		      "Ready"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Steering Position"
+	  Position		  [675, 263, 705, 277]
+	  FontSize		  12
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Switch1"
+	  SrcPort		  1
+	  DstBlock		  "-360/8000"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "Switch1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant11"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "-360/8000"
+	  SrcPort		  1
+	  DstBlock		  "Steering Position"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Lawicel CAN\nReceive 0x211"
+	  SrcPort		  1
+	  Points		  [0, 0; 45, 0]
+	  Branch {
+	    DstBlock		    "Sum"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 0]
+	    Branch {
+	      DstBlock		      "Switch1"
+	      DstPort		      2
+	    }
+	    Branch {
+	      Points		      [0, 10]
+	      DstBlock		      "Switch1"
+	      DstPort		      3
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "Lawicel CAN\nReceive 0x211"
+	  SrcPort		  3
+	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Lawicel CAN\nReceive 0x211"
+	  SrcPort		  2
+	  DstBlock		  "Terminator1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Data Type Conversion"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x201"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  DstBlock		  "Data Type Conversion"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  2
+	  Points		  [25, 0; 0, 35]
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  1
+	  DstBlock		  "Gain4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Torque, Vx1"
+	  SrcPort		  1
+	  Points		  [0, 55]
+	  DstBlock		  "Demux"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x201"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain4"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x201"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x201"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Triggered\nSubsystem"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant3"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "SD-LC Monitor"
+	  SrcPort		  1
+	  Points		  [-10, 0]
+	  DstBlock		  "Triggered\nSubsystem"
+	  DstPort		  trigger
+	}
+	Line {
+	  SrcBlock		  "Constant10"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "Constant9"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "Constant7"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "Constant6"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Constant5"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Constant4"
+	  SrcPort		  1
+	  DstBlock		  "Lawicel CAN\nSend 0x200"
+	  DstPort		  2
+	}
+	Annotation {
+	  Name			  "SensoDrive VEM Wheel Firmware version 2.0 only"
+	  Position		  [407, 426]
+	  ForegroundColor	  "red"
+	  BackgroundColor	  "cyan"
+	  DropShadow		  on
+	  FontSize		  22
+	  FontWeight		  "bold"
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Senso Wheel VEM\nwith Peak CAN"
+      Ports		      [1, 1]
+      Position		      [45, 28, 125, 82]
+      Orientation	      "left"
+      Priority		      "3"
+      AncestorBlock	      "Solver_DS_SF/Senso Wheel 2.0\nwith Peak CAN"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      MaskHideContents	      off
+      MaskDisplay	      "image(imread('SensoDrive.jpg'))"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Senso Wheel VEM\nwith Peak CAN"
+	Location		[152, 52, 1037, 723]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "Torque, Vx1"
+	  Position		  [336, 15, 374, 30]
+	  Orientation		  "down"
+	  IconDisplay		  "Port number"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "-360/8000"
+	  Position		  [580, 253, 640, 287]
+	  Gain			  "-0.045"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant"
+	  Position		  [465, 94, 490, 116]
+	  ShowName		  off
+	  Value			  "20"
+	  OutDataTypeStr	  "uint16"
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant1"
+	  Position		  [100, 73, 120, 87]
+	  ShowName		  off
+	  Value			  "4"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant10"
+	  Position		  [105, 339, 130, 361]
+	  ShowName		  off
+	  Value			  "100"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant11"
+	  Position		  [420, 213, 455, 237]
+	  ShowName		  off
+	  Value			  "hex2dec('100000000')"
+	  VectorParams1D	  off
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant2"
+	  Position		  [465, 155, 490, 175]
+	  ShowName		  off
+	  OutDataTypeStr	  "boolean"
+  OutDataTypeMode   "boolean"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant3"
+	  Position		  [100, 123, 120, 137]
+	  ShowName		  off
+	  Value			  "2"
+	  OutDataTypeStr	  "boolean"
+  OutDataTypeMode   "boolean"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant4"
+	  Position		  [105, 164, 130, 186]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant5"
+	  Position		  [105, 200, 130, 220]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant6"
+	  Position		  [105, 233, 130, 257]
+	  ShowName		  off
+	  Value			  "580"
+	  OutDataTypeStr	  "boolean"
+  OutDataTypeMode   "boolean"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant7"
+	  Position		  [105, 269, 130, 291]
+	  ShowName		  off
+	  Value			  "0"
+	  OutDataTypeStr	  "boolean"
+  OutDataTypeMode   "boolean"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "Constant9"
+	  Position		  [105, 304, 130, 326]
+	  ShowName		  off
+	  Value			  "200"
+	  OutDataTypeStr	  "uint8"
+  OutDataTypeMode   "uint8"
+	}
+	Block {
+	  BlockType		  DataTypeConversion
+	  Name			  "Data Type Conversion"
+	  Position		  [490, 125, 530, 145]
+	  ShowName		  off
+	  OutDataTypeStr	  "uint16"
+	  SaturateOnIntegerOverflow off
+  OutDataTypeMode   "uint16"
+	}
+	Block {
+	  BlockType		  Demux
+	  Name			  "Demux"
+	  Ports			  [1, 2]
+	  Position		  [385, 63, 390, 112]
+	  BackgroundColor	  "black"
+	  NamePlacement		  "alternate"
+	  ShowName		  off
+	  Outputs		  "2"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "Gain4"
+	  Position		  [435, 65, 460, 85]
+	  ShowName		  off
+	  Gain			  "-1000"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Peak CAN\nReceive 0x211"
+	  Ports			  [0, 3]
+	  Position		  [345, 255, 430, 345]
+	  AncestorBlock		  "Solver_SF/Lawicel CAN\nReceive"
+	  FunctionName		  "PCAN_Read"
+	  Parameters		  "id,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskType		  "CarSim DS"
+	  MaskDescription	  "Lawicel CAN Receive."
+	  MaskPromptString	  "CAN ID|Sample time|Bit defination (cell array):|Port name (cell array):"
+	  MaskStyleString	  "edit,edit,edit,edit"
+	  MaskVariables		  "id=&1;TimeStep=&2;bits_define=@3;portnames=@4;"
+	  MaskTunableValueString  "on,on,off,off"
+	  MaskCallbackString	  "|||"
+	  MaskEnableString	  "on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,1);\nset_param(gcb, "
+	  "'Parameters', ['id,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('output',1,'Position ');port_label('output',2,'Speed ');port_label('output',3,'Motor Tor"
+	  "que ');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "529|0.01|{[0:31],[32:47],[48:63]}|{'Position','Speed','Motor Torque'}"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Peak CAN\nSend 0x200"
+	  Ports			  [7]
+	  Position		  [185, 122, 290, 368]
+	  AncestorBlock		  "Solver_SF/Peak CAN\nSend"
+	  FunctionName		  "PCAN_Send"
+	  Parameters		  "id,len,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskDescription	  "Peak-System USB CAN send"
+	  MaskPromptString	  "CAN ID|Data Length|Sample time|Bit defination (cell array):|Port name (cell array):"
+	  MaskStyleString	  "edit,popup(1|2|3|4|5|6|7|8),edit,edit,edit"
+	  MaskVariables		  "id=&1;len=&2;TimeStep=&3;bits_define=@4;portnames=@5;"
+	  MaskTunableValueString  "on,on,on,off,off"
+	  MaskCallbackString	  "||||"
+	  MaskEnableString	  "on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,0);\nset_param(gcb, "
+	  "'Parameters', ['id,len,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('input',1,' Control Word');port_label('input',2,' Operating Mode');port_label('input',3,"
+	  "' Aux. Functions');port_label('input',4,' End Stop Position');port_label('input',5,' Position Offset');port_label('"
+	  "input',6,' Set Torque Limit');port_label('input',7,' Peak Torque Limit');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "512|8|0.025|{[0:3],[4:7],[8:15],[16:31],[32:47],[48:55],[56:63]}|{'Control Word','Operating Mode"
+	  "','Aux. Functions','End Stop Position','Position Offset','Set Torque Limit','Peak Torque Limit'}"
+	}
+	Block {
+	  BlockType		  S-Function
+	  Name			  "Peak CAN\nSend 0x201"
+	  Ports			  [4]
+	  Position		  [570, 61, 665, 179]
+	  AncestorBlock		  "Solver_SF/Peak CAN\nSend"
+	  FunctionName		  "PCAN_Send"
+	  Parameters		  "id,len,TimeStep,nOut,bits_define"
+	  EnableBusSupport	  off
+	  MaskDescription	  "Peak-System USB CAN send"
+	  MaskPromptString	  "CAN ID|Data Length|Sample time|Bit defination (cell array):|Port name (cell array):"
+	  MaskStyleString	  "edit,popup(1|2|3|4|5|6|7|8),edit,edit,edit"
+	  MaskVariables		  "id=&1;len=&2;TimeStep=&3;bits_define=@4;portnames=@5;"
+	  MaskTunableValueString  "on,on,on,off,off"
+	  MaskCallbackString	  "||||"
+	  MaskEnableString	  "on,on,on,on,on"
+	  MaskVisibilityString	  "on,on,on,on,on"
+	  MaskToolTipString	  "on,on,on,on,on"
+	  MaskInitialization	  "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,0);\nset_param(gcb, "
+	  "'Parameters', ['id,len,TimeStep,nOut,bits_define']);\n"
+	  MaskDisplay		  "port_label('input',1,' Torque Set Value');port_label('input',2,' Friction');port_label('input',3,' "
+	  "Damping');port_label('input',4,' Spring Stiffness');"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  on
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  MaskValueString	  "513|8|0.02|{[0:15],[16:31],[32:47],[48:63]}|{'Torque Set Value','Friction','Damping','Spring Sti"
+	  "ffness'}"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "SD-LC Monitor"
+	  Ports			  [0, 1]
+	  Position		  [90, 30, 160, 50]
+	  Orientation		  "left"
+	  NamePlacement		  "alternate"
+	  Priority		  "4"
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "SD-LC Monitor"
+	    Location		    [565, 52, 1362, 878]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator"
+	      Ports		      [1, 1]
+	      Position		      [480, 16, 520, 54]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('2')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator1"
+	      Ports		      [1, 1]
+	      Position		      [480, 66, 520, 104]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('4')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator10"
+	      Ports		      [1, 1]
+	      Position		      [480, 469, 520, 511]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('800')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator11"
+	      Ports		      [1, 1]
+	      Position		      [480, 514, 520, 556]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('2000')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator12"
+	      Ports		      [1, 1]
+	      Position		      [480, 558, 520, 602]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('4000')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator2"
+	      Ports		      [1, 1]
+	      Position		      [480, 110, 520, 150]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('8')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator3"
+	      Ports		      [1, 1]
+	      Position		      [480, 156, 520, 194]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('10')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator4"
+	      Ports		      [1, 1]
+	      Position		      [480, 200, 520, 240]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('20')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator5"
+	      Ports		      [1, 1]
+	      Position		      [480, 244, 520, 286]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('40')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator6"
+	      Ports		      [1, 1]
+	      Position		      [480, 289, 520, 331]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('80')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator7"
+	      Ports		      [1, 1]
+	      Position		      [480, 333, 520, 377]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('100')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator8"
+	      Ports		      [1, 1]
+	      Position		      [480, 379, 520, 421]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('200')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Bitwise\nOperator9"
+	      Ports		      [1, 1]
+	      Position		      [480, 425, 520, 465]
+	      ShowName		      off
+	      SourceBlock	      "simulink/Logic and Bit\nOperations/Bitwise\nOperator"
+	      SourceType	      "Bitwise Operator"
+	      logicop		      "AND"
+	      UseBitMask	      on
+	      NumInputPorts	      "1"
+	      BitMask		      "hex2dec('400')"
+	      BitMaskRealWorld	      "Stored Integer"
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Data Type Conversion"
+	      Position		      [175, 63, 225, 87]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint8"
+	      SaturateOnIntegerOverflow	off
+  OutDataTypeMode   "uint8"
+	    }
+	    Block {
+	      BlockType		      DataTypeConversion
+	      Name		      "Data Type Conversion1"
+	      Position		      [175, 153, 225, 177]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint16"
+	      SaturateOnIntegerOverflow	off
+  OutDataTypeMode   "uint16"
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Demo mode"
+	      Ports		      [1]
+	      Position		      [555, 299, 645, 321]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display"
+	      Ports		      [1]
+	      Position		      [260, 64, 350, 86]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display1"
+	      Ports		      [1]
+	      Position		      [260, 154, 350, 176]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display2"
+	      Ports		      [1]
+	      Position		      [225, 243, 310, 267]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Display3"
+	      Ports		      [1]
+	      Position		      [225, 333, 310, 357]
+	      ShowName		      off
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Encoder index"
+	      Ports		      [1]
+	      Position		      [555, 479, 645, 501]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "End Stops switched on"
+	      Ports		      [1]
+	      Position		      [555, 434, 645, 456]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Error occurred"
+	      Ports		      [1]
+	      Position		      [555, 119, 645, 141]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "High level mode"
+	      Ports		      [1]
+	      Position		      [555, 164, 645, 186]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Low level mode"
+	      Ports		      [1]
+	      Position		      [555, 209, 645, 231]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Motor Active"
+	      Ports		      [1]
+	      Position		      [555, 74, 645, 96]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Motor protection active"
+	      Ports		      [1]
+	      Position		      [555, 389, 645, 411]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      S-Function
+	      Name		      "Peak CAN\nReceive 0x210"
+	      Ports		      [0, 4]
+	      Position		      [25, 28, 150, 392]
+	      FunctionName	      "PCAN_Read"
+	      Parameters	      "id,TimeStep,nOut,bits_define"
+	      EnableBusSupport	      off
+	      MaskPromptString	      "CAN ID|Sample time|Bit defination (cell array):|Port name (cell array):"
+	      MaskStyleString	      "edit,edit,edit,edit"
+	      MaskVariables	      "id=&1;TimeStep=&2;bits_define=@3;portnames=@4;"
+	      MaskTunableValueString  "on,on,off,off"
+	      MaskCallbackString      "|||"
+	      MaskEnableString	      "on,on,on,on"
+	      MaskVisibilityString    "on,on,on,on"
+	      MaskToolTipString	      "on,on,on,on"
+	      MaskInitialization      "nOut=length(bits_define);\n[bits_define]=formatbit(bits_define,portnames,1);\nset_para"
+	      "m(gcb, 'Parameters', ['id,TimeStep,nOut,bits_define']);\n"
+	      MaskDisplay	      "port_label('output',1,'Status ');port_label('output',2,'Errors ');port_label('output',3,'End"
+	      " Stop Position ');port_label('output',4,'Encodeer Index Position ');"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      on
+	      MaskIconRotate	      "none"
+	      MaskIconUnits	      "autoscale"
+	      MaskValueString	      "528|0.1|{[0:15],[16:31],[32:47],[48:63]}|{'Status','Errors','End Stop Position','Encodee"
+	      "r Index Position'}"
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Position Ref Completed"
+	      Ports		      [1]
+	      Position		      [555, 524, 645, 546]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Position Reference"
+	      Ports		      [1]
+	      Position		      [555, 254, 645, 276]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "State Ready"
+	      Ports		      [1]
+	      Position		      [555, 34, 645, 56]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Test CPU Watchdog Successfull"
+	      Ports		      [1]
+	      Position		      [555, 569, 645, 591]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Display
+	      Name		      "Watchdog switched off"
+	      Ports		      [1]
+	      Position		      [555, 344, 645, 366]
+	      Decimation	      "1"
+	      Lockdown		      off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Ready"
+	      Position		      [685, 13, 715, 27]
+	      IconDisplay	      "Port number"
+	      InitialOutput	      "0"
+	    }
+	    Line {
+	      Labels		      [0, 0]
+	      SrcBlock		      "Data Type Conversion"
+	      SrcPort		      1
+	      Points		      [15, 0]
+	      Branch {
+		DstBlock		"Display"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 0; 0, -40; 205, 0]
+		Branch {
+		  Points		  [0, 50]
+		  Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator7"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator8"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator9"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator10"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator11"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 45]
+		    DstBlock		    "Bitwise\nOperator12"
+		    DstPort		    1
+		    }
+		    }
+		    }
+		    }
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator6"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator5"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator4"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator3"
+		    DstPort		    1
+		    }
+		    }
+		    Branch {
+		    DstBlock		    "Bitwise\nOperator2"
+		    DstPort		    1
+		    }
+		  }
+		  Branch {
+		    DstBlock		    "Bitwise\nOperator1"
+		    DstPort		    1
+		  }
+		}
+		Branch {
+		  DstBlock		  "Bitwise\nOperator"
+		  DstPort		  1
+		}
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator12"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Test CPU Watchdog Successfull"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator11"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Position Ref Completed"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator10"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Encoder index"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator9"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "End Stops switched on"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator8"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Motor protection active"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator7"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Watchdog switched off"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator6"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Demo mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator5"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Position Reference"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator4"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Low level mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator3"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "High level mode"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator2"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Error occurred"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator1"
+	      SrcPort		      1
+	      Points		      [0, 0]
+	      DstBlock		      "Motor Active"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Bitwise\nOperator"
+	      SrcPort		      1
+	      Points		      [0, 0; 5, 0]
+	      Branch {
+		Points			[10, 0]
+		DstBlock		"State Ready"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -15]
+		DstBlock		"Ready"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Data Type Conversion1"
+	      SrcPort		      1
+	      DstBlock		      "Display1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Peak CAN\nReceive 0x210"
+	      SrcPort		      4
+	      DstBlock		      "Display3"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Peak CAN\nReceive 0x210"
+	      SrcPort		      3
+	      DstBlock		      "Display2"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Peak CAN\nReceive 0x210"
+	      SrcPort		      2
+	      DstBlock		      "Data Type Conversion1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Peak CAN\nReceive 0x210"
+	      SrcPort		      1
+	      DstBlock		      "Data Type Conversion"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  Position		  [505, 66, 520, 84]
+	  ShowName		  off
+	  UpperLimit		  "14500"
+	  LowerLimit		  "-14500"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  Position		  [445, 126, 460, 144]
+	  ShowName		  off
+	  UpperLimit		  "200"
+	  LowerLimit		  "40"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  Ports			  [2, 1]
+	  Position		  [480, 215, 500, 235]
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "|-+"
+	  InputSameDT		  off
+	  OutDataTypeStr	  "Inherit: Inherit via internal rule"
+  OutDataTypeMode   "Inherit via internal rule"
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch"
+	  Position		  [140, 69, 155, 141]
+	  ShowName		  off
+	  Threshold		  "0.5"
+	  InputSameDT		  off
+	}
+	Block {
+	  BlockType		  Switch
+	  Name			  "Switch1"
+	  Position		  [525, 251, 545, 289]
+	  Threshold		  "100000"
+	  InputSameDT		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  Position		  [485, 320, 505, 340]
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator1"
+	  Position		  [485, 290, 505, 310]
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Triggered\nSubsystem"
+	  Ports			  [0, 1, 0, 1]
+	  Position		  [35, 95, 120, 115]
+	  ShowName		  off
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  PropExecContextOutsideSubsystem off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  Opaque		  off
+	  MaskHideContents	  off
+	  System {
+	    Name		    "Triggered\nSubsystem"
+	    Location		    [371, 234, 732, 576]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      TriggerPort
+	      Name		      "Trigger"
+	      Ports		      []
+	      Position		      [50, 15, 70, 35]
+	      StatesWhenEnabling      "held"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "Constant3"
+	      Position		      [25, 98, 45, 112]
+	      ShowName		      off
+	      OutDataTypeStr	      "uint16"
+  OutDataTypeMode   "uint16"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Ready"
+	      Position		      [170, 98, 200, 112]
+	      IconDisplay	      "Port number"
+	      InitialOutput	      "0"
+	    }
+	    Line {
+	      SrcBlock		      "Constant3"
+	      SrcPort		      1
+	      DstBlock		      "Ready"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "Steering Position"
+	  Position		  [675, 263, 705, 277]
+	  FontSize		  12
+	  IconDisplay		  "Port number"
+	}
+	Line {
+	  SrcBlock		  "Switch1"
+	  SrcPort		  1
+	  DstBlock		  "-360/8000"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  DstBlock		  "Switch1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant11"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "-360/8000"
+	  SrcPort		  1
+	  Points		  [0, 0]
+	  DstBlock		  "Steering Position"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Peak CAN\nReceive 0x211"
+	  SrcPort		  1
+	  Points		  [55, 0]
+	  Branch {
+	    DstBlock		    "Sum"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 0]
+	    Branch {
+	      DstBlock		      "Switch1"
+	      DstPort		      2
+	    }
+	    Branch {
+	      Points		      [0, 10]
+	      DstBlock		      "Switch1"
+	      DstPort		      3
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "Peak CAN\nReceive 0x211"
+	  SrcPort		  3
+	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Peak CAN\nReceive 0x211"
+	  SrcPort		  2
+	  DstBlock		  "Terminator1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Data Type Conversion"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x201"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  DstBlock		  "Data Type Conversion"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  2
+	  Points		  [25, 0; 0, 35]
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Demux"
+	  SrcPort		  1
+	  DstBlock		  "Gain4"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Torque, Vx1"
+	  SrcPort		  1
+	  Points		  [0, 55]
+	  DstBlock		  "Demux"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x201"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Gain4"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant2"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x201"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Constant"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x201"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Triggered\nSubsystem"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Constant1"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Constant3"
+	  SrcPort		  1
+	  DstBlock		  "Switch"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Switch"
+	  SrcPort		  1
+	  Points		  [5, 0; 0, 35]
+	  DstBlock		  "Peak CAN\nSend 0x200"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "SD-LC Monitor"
+	  SrcPort		  1
+	  Points		  [-10, 0]
+	  DstBlock		  "Triggered\nSubsystem"
+	  DstPort		  trigger
+	}
+	Line {
+	  SrcBlock		  "Constant10"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x200"
+	  DstPort		  7
+	}
+	Line {
+	  SrcBlock		  "Constant9"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x200"
+	  DstPort		  6
+	}
+	Line {
+	  SrcBlock		  "Constant7"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x200"
+	  DstPort		  5
+	}
+	Line {
+	  SrcBlock		  "Constant6"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x200"
+	  DstPort		  4
+	}
+	Line {
+	  SrcBlock		  "Constant5"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x200"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Constant4"
+	  SrcPort		  1
+	  DstBlock		  "Peak CAN\nSend 0x200"
+	  DstPort		  2
+	}
+	Annotation {
+	  Name			  "SensoDrive Wheel VEM only"
+	  Position		  [407, 426]
+	  ForegroundColor	  "red"
+	  BackgroundColor	  "cyan"
+	  DropShadow		  on
+	  FontSize		  22
+	  FontWeight		  "bold"
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Time Controller"
+      Ports		      []
+      Position		      [45, 195, 115, 226]
+      BackgroundColor	      "lightBlue"
+      AncestorBlock	      "Solver_SF/Time Controller"
+      MinAlgLoopOccurrences   off
+      PropExecContextOutsideSubsystem off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      Opaque		      off
+      MaskHideContents	      off
+      MaskType		      "CarSim DS"
+      MaskDescription	      "This Real-Time control block enables the Simulink system running at real time mode."
+      MaskInitialization      "TimeStep=str2num(get_param(gcs,'FixedStep'));"
+      MaskDisplay	      "disp('RT Enable');"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      System {
+	Name			"Time Controller"
+	Location		[598, 442, 849, 718]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  S-Function
+	  Name			  "S-Function"
+	  Ports			  [0, 1]
+	  Position		  [25, 25, 100, 65]
+	  ShowName		  off
+	  FunctionName		  "RT_Enable"
+	  Parameters		  "TimeStep"
+	  EnableBusSupport	  off
+	}
+	Block {
+	  BlockType		  Terminator
+	  Name			  "Terminator"
+	  Position		  [150, 35, 170, 55]
+	  ShowName		  off
+	}
+	Line {
+	  SrcBlock		  "S-Function"
+	  SrcPort		  1
+	  DstBlock		  "Terminator"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      S-Function
+      Name		      "VS S-Function"
+      Ports		      [1, 1]
+      Position		      [45, 274, 175, 346]
+      Priority		      "1"
+      FontSize		      12
+      FunctionName	      "vs_sf_ds"
+      Parameters	      "'simfile.sim'"
+      EnableBusSupport	      off
+      MaskType		      "Vehicle math model library"
+      MaskDescription	      "The vehicle code on this S-Function determine which solver is used for vehicle type that "
+      "is simulated. \n\nSimfile lists the names of the main files that will be read and written by the solver program."
+      MaskPromptString	      "Simfile name:"
+      MaskStyleString	      "edit"
+      MaskVariables	      "SIMFILE=&1;"
+      MaskTunableValueString  "off"
+      MaskEnableString	      "on"
+      MaskVisibilityString    "on"
+      MaskToolTipString	      "on"
+      MaskInitialization      "set_param(gcb, 'Parameters', ['''',SIMFILE,'''']);\n"
+      MaskDisplay	      "image(imread('car_ds.bmp'))"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "simfile.sim"
+    }
+    Block {
+      BlockType		      S-Function
+      Name		      "VS S-Function2"
+      Ports		      [1, 1]
+      Position		      [250, 274, 380, 346]
+      Priority		      "1"
+      FunctionName	      "vs_sf2_ds"
+      Parameters	      "'simfile.sim'"
+      EnableBusSupport	      off
+      MaskType		      "Vehicle math model library"
+      MaskDescription	      "The vehicle code on this S-Function determine which solver is used for vehicle type that "
+      "is simulated. \n\nSimfile lists the names of the main files that will be read and written by the solver program."
+      MaskPromptString	      "Simfile name:"
+      MaskStyleString	      "edit"
+      MaskVariables	      "SIMFILE=&1;"
+      MaskTunableValueString  "off"
+      MaskEnableString	      "on"
+      MaskVisibilityString    "on"
+      MaskToolTipString	      "on"
+      MaskInitialization      "set_param(gcb, 'Parameters', ['''',SIMFILE,'''']);\n"
+      MaskDisplay	      "image(imread('car_ds2.bmp'))"
+      MaskIconFrame	      on
+      MaskIconOpaque	      on
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "autoscale"
+      MaskValueString	      "simfile.sim"
+    }
+  }
+}
